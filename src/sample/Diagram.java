@@ -3,6 +3,7 @@ package sample;
     Author: LB
     Created on: 26.04.2021
     Changed on: 26.04.2021
+    Changed from:
     Description: Displays a diagram for a course
  */
 public class Diagram {
