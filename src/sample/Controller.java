@@ -1,4 +1,15 @@
 package sample;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
 /*
     Author: LB
     Created on: 26.04.2021
@@ -6,6 +17,32 @@ package sample;
     Changed from:
     Description: Controller class for managing code to UI communication
  */
-public class Controller {
-    
+public class Controller implements Initializable {
+    @FXML
+    private LineChart<?, ?> lchart;
+
+    @FXML
+    private CategoryAxis lc_x;
+
+    @FXML
+    private NumberAxis lc_y;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        XYChart.Series series = new XYChart.Series();
+        series.setName("benis");
+        XYChart.Series series2 = new XYChart.Series();
+
+
+        series.getData().add(new XYChart.Data("12", 30000));
+        series.getData().add(new XYChart.Data("16", 35000));
+        series.getData().add(new XYChart.Data("20", 37000));
+
+        series2.getData().add(new XYChart.Data("12", 30));
+        series2.getData().add(new XYChart.Data("16", 5000));
+        series2.getData().add(new XYChart.Data("20", 1000));
+
+        lchart.getData().addAll(series);
+        lchart.getData().addAll(series2);
+    }
 }

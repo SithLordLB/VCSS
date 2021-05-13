@@ -20,6 +20,9 @@ public class Main extends Application {
         primaryStage.setTitle("VCSS");
         primaryStage.setScene(new Scene(root, 720, 480));
         primaryStage.show();
+        RestAPI api = new RestAPI();
+        api.getAPICourse("BTC", "EUR");
+        api.getIcon(128);
     }
 
 
