@@ -1,14 +1,19 @@
 package sample;
 
 import javafx.fxml.FXML;
+
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.scene.chart.LineChart;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
+import javax.swing.text.html.ImageView;
+
 
 /*
     Author: LB
@@ -17,6 +22,7 @@ import java.util.ResourceBundle;
     Changed from:
     Description: Controller class for managing code to UI communication
  */
+
 public class Controller implements Initializable {
     @FXML
     private LineChart<?, ?> lchart;
@@ -26,6 +32,10 @@ public class Controller implements Initializable {
 
     @FXML
     private NumberAxis lc_y;
+    @FXML ComboBox cmb_Waehrung;
+    @FXML ComboBox cmb_Kursdatum;
+    @FXML TextArea txt_Kurse;
+    @FXML LineChart lc_Kursgraph;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -42,7 +52,8 @@ public class Controller implements Initializable {
         series2.getData().add(new XYChart.Data("16", 5000));
         series2.getData().add(new XYChart.Data("20", 1000));
 
-        lchart.getData().addAll(series);
-        lchart.getData().addAll(series2);
+
+
     }
+
 }

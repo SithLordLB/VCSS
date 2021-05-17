@@ -3,31 +3,37 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
 
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-   </rowConstraints>
-   <children>
-      <AnchorPane prefHeight="480.0" prefWidth="720.0">
-         <children>
-            <LineChart fx:id="lchart" layoutX="188.0" layoutY="53.0">
-              <xAxis>
-                <CategoryAxis fx:id="lc_x" label="Time" side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis fx:id="lc_y" label="Price" side="LEFT" />
-              </yAxis>
-            </LineChart>
-         </children>
-      </AnchorPane>
-   </children>
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <Pane prefHeight="534.0" prefWidth="848.0">
+            <children>
+                <ComboBox fx:id="cmb_Kursdatum" layoutX="219.0" layoutY="22.0" prefHeight="41.0" prefWidth="177.0" promptText="Kursdatum" />
+                <ComboBox fx:id="cmb_Waehrung" layoutX="424.0" layoutY="22.0" prefHeight="41.0" prefWidth="177.0" promptText="Währung" />
+                <LineChart fx:id="lc_Kursgraph" layoutX="219.0" layoutY="105.0" prefHeight="400.0" prefWidth="557.0">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </LineChart>
+                <Line endX="-100.0" endY="533.4000244140625" layoutX="286.0" layoutY="1.0" startX="-100.0" />
+                <TextArea fx:id="txt_Kurse" layoutX="9.0" layoutY="12.0" prefHeight="506.0" prefWidth="166.0" />
+            </children>
+        </Pane>
+    </children>
 </GridPane>
