@@ -1,9 +1,12 @@
 <component name="libraryTable">
-  <library name="lib">
+  <library name="javafx">
     <CLASSES>
       <root url="file://$VM$" />
     </CLASSES>
     <JAVADOC />
+    <NATIVE>
+      <root url="file://$VM$" />
+    </NATIVE>
     <SOURCES>
       <root url="file://$VM$" />
     </SOURCES>
