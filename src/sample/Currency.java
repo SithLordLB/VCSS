@@ -10,6 +10,10 @@ public class Currency {
     private String name;
     private String isoCode;
 
+    public Currency(){
+
+    }
+
     public Currency(String name, String isoCode) {
         this.name = name;
         this.isoCode = isoCode;
