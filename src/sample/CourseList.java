@@ -20,7 +20,7 @@ public class CourseList {
         //Filling the list with courses
     }
 
-    public static double getCourse(Currency startCurrency, Currency targetCurrency, Date date){  //method for finding a fitting course for a start- and a target currency
+    /*public static double getCourse(Currency startCurrency, Currency targetCurrency, Date date){  //method for finding a fitting course for a start- and a target currency
         Course tempCourse = new Course(startCurrency,targetCurrency, 0, new Date());    //temporary Course
 
         for (Course course : courseList) {    //search the list for a fitting course
@@ -36,7 +36,7 @@ public class CourseList {
         } else{
             return 0;
         }
-    }
+    } */
 
 
     public static ArrayList<Course> getCourseList() {
