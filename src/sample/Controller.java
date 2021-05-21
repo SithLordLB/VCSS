@@ -24,18 +24,15 @@ import javax.swing.text.html.ImageView;
  */
 
 public class Controller implements Initializable {
-    @FXML
-    private LineChart<?, ?> lchart;
-
-    @FXML
-    private CategoryAxis lc_x;
-
-    @FXML
-    private NumberAxis lc_y;
+    // FXML Attributes
     @FXML ComboBox cmb_Waehrung;
     @FXML ComboBox cmb_Kursdatum;
     @FXML TextArea txt_Kurse;
     @FXML LineChart lc_Kursgraph;
+    // Line Graph Attributes
+    @FXML private LineChart<?, ?> lchart;
+    @FXML private CategoryAxis lc_x;
+    @FXML private NumberAxis lc_y;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
