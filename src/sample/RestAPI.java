@@ -6,7 +6,6 @@ package sample;
     Changed from: LB
     Description: This class provides the information for the currencies, exchanges,......
  */
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -23,6 +22,7 @@ public class RestAPI {
             .version(HttpClient.Version.HTTP_1_1)
             .build();
     HttpRequest request;
+    private final String apiKey = "803FBDC3-180C-47D4-B4EB-669EFB2B3E7A";
     //Date varibales to get the course of the day
 
 
@@ -33,7 +33,7 @@ public class RestAPI {
             request = HttpRequest.newBuilder()
                     .GET()
                     .uri(URI.create("https://rest.coinapi.io/v1/exchangerate/" + currency1 + "/" + currency2))
-                    .headers("X-CoinAPI-Key", "60D204E3-25E1-4A7C-8385-1A4847F6C8BB", "Accept", "application/json")         //Schlüssel in einem File klatschen und User cock blocken amena koi fick
+                    .headers("X-CoinAPI-Key", apiKey, "Accept", "application/json")         //Schlüssel in einem File klatschen und User cock blocken amena koi fick
                     .build();
 
             //The content is saved it response
@@ -68,7 +68,7 @@ public class RestAPI {
                     request = HttpRequest.newBuilder()
                             .GET()
                             .uri(URI.create("https://rest.coinapi.io/v1/exchangerate/" + currency1 + "/" + currency2 + "/history?period_id=1HRS&time_start=" + LocalDate.now().minusDays(1) + "T00:00:00&time_end=" + LocalDate.now() + "T00:00:00"))
-                            .headers("X-CoinAPI-Key", "60D204E3-25E1-4A7C-8385-1A4847F6C8BB", "Accept", "application/json")         //Schlüssel in einem File klatschen und User cock blocken amena koi fick
+                            .headers("X-CoinAPI-Key", apiKey, "Accept", "application/json")         //Schlüssel in einem File klatschen und User cock blocken amena koi fick
                             .build();
                     System.out.println(LocalDate.now());
                     break;
@@ -109,7 +109,7 @@ public class RestAPI {
             request = HttpRequest.newBuilder()
                     .GET()
                     .uri(URI.create("https://rest.coinapi.io/v1/assets/icons/" + iconSize + "/filter_asset_id={BTC}"))
-                    .headers("X-CoinAPI-Key", "60D204E3-25E1-4A7C-8385-1A4847F6C8BB", "Accept", "application/json")
+                    .headers("X-CoinAPI-Key", apiKey, "Accept", "application/json")
                     .build();
 
             //The content is saved it response
@@ -141,7 +141,7 @@ public class RestAPI {
             request = HttpRequest.newBuilder()
                     .GET()
                     .uri(URI.create("https://rest.coinapi.io/v1/assets"))
-                    .headers("X-CoinAPI-Key", "60D204E3-25E1-4A7C-8385-1A4847F6C8BB", "Accept", "application/json")
+                    .headers("X-CoinAPI-Key", apiKey, "Accept", "application/json")
                     .build();
 
             //The content is saved it response

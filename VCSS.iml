@@ -12,5 +12,7 @@
     <orderEntry type="library" name="jackson-databind-2.12.3" level="project" />
     <orderEntry type="library" name="javafx" level="project" />
     <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="javafx" level="project" />
+    <orderEntry type="library" name="javafx" level="project" />
   </component>
 </module>
