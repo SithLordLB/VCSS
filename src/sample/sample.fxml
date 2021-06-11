@@ -3,37 +3,22 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <columnConstraints>
-        <ColumnConstraints />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints />
-    </rowConstraints>
-    <children>
-        <Pane prefHeight="534.0" prefWidth="848.0">
-            <children>
-                <ComboBox fx:id="cmb_Kursdatum" layoutX="219.0" layoutY="22.0" prefHeight="41.0" prefWidth="177.0" promptText="Kursdatum" />
-                <ComboBox fx:id="cmb_Waehrung" layoutX="424.0" layoutY="22.0" prefHeight="41.0" prefWidth="177.0" promptText="Währung" />
-                <LineChart fx:id="lc_Kursgraph" layoutX="219.0" layoutY="105.0" prefHeight="400.0" prefWidth="557.0">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </LineChart>
-                <Line endX="-100.0" endY="533.4000244140625" layoutX="286.0" layoutY="1.0" startX="-100.0" />
-                <TextArea fx:id="txt_Kurse" layoutX="9.0" layoutY="12.0" prefHeight="506.0" prefWidth="166.0" />
-            </children>
-        </Pane>
-    </children>
-</GridPane>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <LineChart fx:id="lchart" layoutX="529.0" layoutY="186.0" legendVisible="false" prefHeight="497.0" prefWidth="722.0">
+        <xAxis>
+          <CategoryAxis fx:id="lc_x" animated="false" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="lc_y" animated="false" autoRanging="false" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <ComboBox fx:id="cbox_crypto" layoutX="14.0" layoutY="14.0" prefWidth="150.0" promptText="e.g. BTC" />
+      <ComboBox fx:id="cbox_fiat" layoutX="179.0" layoutY="14.0" onAction="#changeCurrency" prefWidth="150.0" promptText="e.g. USD" />
+      <Button layoutX="1214.0" layoutY="14.0" mnemonicParsing="false" text="Settings" />
+   </children>
+</AnchorPane>

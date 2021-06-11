@@ -19,15 +19,9 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
         primaryStage.setTitle("BitScout");
-        primaryStage.setScene(new Scene(root, 720, 480));
+        primaryStage.setScene(new Scene(root, 1280, 720));
 
         primaryStage.show();
-
-        //Test
-        RestAPI api = new RestAPI();
-        Course course = api.getAPICourse("BTC", "EUR");
-        System.out.println(course.getAsset_id_base() + " " + course.getAsset_id_quote() + " " + course.getRate() + " " + course.getTime());
-        //api.getIcon(128);
     }
 
 

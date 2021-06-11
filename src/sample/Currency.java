@@ -1,4 +1,7 @@
 package sample;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /*
     Author: LB
     Created on: 26.04.2021
@@ -7,8 +10,15 @@ package sample;
     Description: Currency class, it lets create for every currency a object, will be put in a list
  */
 public class Currency {
+
+    @JsonProperty("asset_id")
     private String name;
+
+    @JsonProperty("name")
     private String isoCode;
+
+    @JsonProperty("type_is_crypto")
+    private byte isCrypto;
 
     public Currency(){
 
@@ -34,5 +44,13 @@ public class Currency {
 
     public void setIsoCode(String isoCode) {
         this.isoCode = isoCode;
+    }
+
+    public byte getIsCrypto() {
+        return isCrypto;
+    }
+
+    public void setIsCrypto(byte isCrypto) {
+        this.isCrypto = isCrypto;
     }
 }

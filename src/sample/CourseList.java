@@ -10,11 +10,25 @@ package sample;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
 
 public class CourseList {
 
     private static ArrayList<Course> courseList = new ArrayList<>();    //the list in which the courses are stored
+    private static ArrayList<Double> doubleArrayList = new ArrayList<>();
+
+    //Sorts the rates from the lowest to the highest
+    public static ArrayList<Double> sortByRate(List<CourseTimePeriod> list){
+        //clears the double array list
+        doubleArrayList = new ArrayList<>();
+        for(CourseTimePeriod courseTimePeriod: list){
+            doubleArrayList.add(Double.parseDouble(courseTimePeriod.getRate_open()));
+        }
+        Collections.sort(doubleArrayList);
+        return doubleArrayList;
+    }
 
     public void update() throws IOException {
         //Filling the list with courses
