@@ -1,7 +1,5 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
@@ -17,7 +15,6 @@ import java.util.ResourceBundle;
 
 import javafx.scene.control.ComboBox;
 
-import javax.management.openmbean.OpenMBeanParameterInfoSupport;
 
 
 /*
@@ -52,12 +49,15 @@ public class Controller implements Initializable {
         api.getAllAssets();
 
 
-        new AutoCompleteBox(cbox_crypto);
-        new AutoCompleteBox(cbox_fiat);
+        //Sets the comboboxes
         cbox_crypto.setItems(CurrencyList.cryptoNamesList);
         cbox_fiat.setItems(CurrencyList.fiatNamesList);
 
+        FxUtilTest.autoCompleteComboBoxPlus(cbox_crypto, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
+        FxUtilTest.autoCompleteComboBoxPlus(cbox_fiat, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
+
     }
+
 
     //Shows the line in the LineChart
     public void fillGraphdata(){
