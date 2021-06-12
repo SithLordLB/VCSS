@@ -18,10 +18,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Calculator calculator=new Calculator();
 
-        //Stage primstage=new Stage();                                               Calculator funktioniert
-        //calculator.start(primstage);
+        Calculator calculator=new Calculator();
+        Stage primstage=new Stage();
+        calculator.start(primstage);
 
         primaryStage.setTitle("BitScout");
         primaryStage.setScene(new Scene(root, 1280, 720));
