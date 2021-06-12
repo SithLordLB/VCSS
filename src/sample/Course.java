@@ -24,6 +24,14 @@ public class Course {
     @JsonProperty("time")
     private Date time;
 
+    //Used for the left VBox on the side
+    @JsonProperty("asset_id")
+    private String asset_id;
+
+
+    @JsonProperty("price_usd")
+    private double priceInUSD;
+
     //Default Constructor
     public Course(){
 
@@ -35,6 +43,12 @@ public class Course {
         this.asset_id_quote = asset_id_quote;
         this.rate = rate;
         this.time = time;
+    }
+
+    //Constructor for the left side thing
+    public Course(String asset_id, double priceInUSD) {
+        this.asset_id = asset_id;
+        this.priceInUSD = priceInUSD;
     }
 
     //Getter and Setter
@@ -70,5 +84,19 @@ public class Course {
         this.time = time;
     }
 
+    public String getAsset_id() {
+        return asset_id;
+    }
 
+    public void setAsset_id(String asset_id) {
+        this.asset_id = asset_id;
+    }
+
+    public double getPriceInUSD() {
+        return priceInUSD;
+    }
+
+    public void setPriceInUSD(double priceInUSD) {
+        this.priceInUSD = priceInUSD;
+    }
 }

@@ -34,23 +34,23 @@ public class CourseList {
         //Filling the list with courses
     }
 
-    /*public static double getCourse(Currency startCurrency, Currency targetCurrency, Date date){  //method for finding a fitting course for a start- and a target currency
-        Course tempCourse = new Course(startCurrency,targetCurrency, 0, new Date());    //temporary Course
+    public static double getCourse(String asset_id_base, String asset_id_quote, Date date){  //method for finding a fitting course for a start- and a target currency
+        Course tempCourse = new Course(asset_id_base,asset_id_quote, 0, new Date());
 
         for (Course course : courseList) {    //search the list for a fitting course
 
-            if (startCurrency.equals(course.getCurrency1()) && targetCurrency.equals(course.getCurrency2()) && date.equals(course.getDate())) {
-                tempCourse = course;    //set the fitting course as the temporary course
+            if (asset_id_base.equals(course.getAsset_id_base()) && asset_id_quote.equals(course.getAsset_id_quote()) && date.equals(course.getTime())) {
+                tempCourse = course;          //set the fitting course as the temporary course
             }
 
         }
 
-        if(tempCourse.getCourse() != 0) {
-            return tempCourse.getCourse();  //return the fitting course or 0 if no fitting course was found
+        if(tempCourse.getRate() != 0) {
+            return tempCourse.getRate();  //return the fitting course or 0 if no fitting course was found
         } else{
             return 0;
         }
-    } */
+    }
 
 
     public static ArrayList<Course> getCourseList() {

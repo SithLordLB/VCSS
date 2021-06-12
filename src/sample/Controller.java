@@ -36,6 +36,7 @@ public class Controller implements Initializable {
     //For calling the method fillGraphdata()
     private RestAPI api = new RestAPI();
     private List<CourseTimePeriod> courseTimePeriodList;
+    private List<Course> courseList;
     private String x;
     private String y;
     private ArrayList<Double> doubleArrayList = new ArrayList<>();
@@ -46,7 +47,10 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //api.getAPICourse("BTC", "EUR");
         //Calls method to fill the Comboboxes cbox_crypto & cbox_fiat
-        api.getAllAssets();
+        //api.getAllAssets();
+        courseList = api.getAPICourse();
+        System.out.println(courseList.get(0).getAsset_id() + courseList.get(0).getPriceInUSD());
+
 
 
         //Sets the comboboxes

@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class JSONParse {
     private static ObjectMapper objectMapper = new ObjectMapper();
     private static Course course, course2;
     private static List<CourseTimePeriod> courseTimePeriods;
+    private static List<Course> courseList;
     private static List<Currency> currencies;
 
     //Parses the JSON String to get the values of course rate, time, etc.
@@ -56,5 +58,15 @@ public class JSONParse {
             CurrencyList.addCurrency(currency.getIsoCode(), currency.getName(), currency.getIsCrypto());
         }
         System.out.println();
+    }
+
+    //Parses the some Crypto currencies for the left side fuck
+    public static List parseJSONSide(String apiString) throws JsonProcessingException {
+        //Ignores every not known property of the JSON
+        objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        //Puts the objects of the json array string in a list
+        courseList = Arrays.asList(objectMapper.readValue(apiString, Course[].class));
+        //System.out.println(courseList.get(0).getAsset_id() + " " + courseList.get(0).getPriceInUSD());
+        return courseList;
     }
 }
