@@ -1,28 +1,32 @@
 package sample;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import javafx.collections.ObservableList;
 
+import java.io.*;
+/*
+    Author: JA
+    Created on: 12.06.2021
+    Changed on: 14.06.2021
+    Changed from: JA
+    Description: Writes and reads objects from a file
+ */
 public class FileStream {
-    private static final String filepath="C:\\Users\\nikos7\\Desktop\\obj";
-
-    public static void main(String args[]) {
+    public static void AccessFileStream(String filepath, Object observableList) {
+        //private static final String filepath="C:\\Users\\nikos7\\Desktop\\obj";
 
         FileStream objectIO = new FileStream();
 
-        CurrencyList currencyList = new CurrencyList();
-        objectIO.WriteObjectToFile(filepath, currencyList);
+        objectIO.WriteObjectToFile(filepath, observableList);
 
         //Read object from file
-        CurrencyList cl = (CurrencyList) objectIO.ReadObjectFromFile(filepath);
-        System.out.println(cl);
+        //CurrencyList cl = (CurrencyList) objectIO.ReadObjectFromFile(filepath);
+        //System.out.println(cl);
     }
 
     public void WriteObjectToFile(String filepath,Object serObj) {
 
         try {
+
 
             FileOutputStream fileOut = new FileOutputStream(filepath);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);

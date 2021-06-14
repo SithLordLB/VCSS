@@ -6,7 +6,13 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-
+/*
+    Author: LB
+    Created on: 09.06.2021
+    Changed on: 09.06.2021
+    Changed from: LB
+    Description: Autocomplete Class for the comboxes
+ */
 public class FxUtilTest {
 
     public interface AutoCompleteComparator<T> {

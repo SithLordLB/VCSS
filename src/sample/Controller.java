@@ -34,9 +34,9 @@ public class Controller implements Initializable {
     @FXML private ComboBox cbox_fiat;
 
     //For calling the method fillGraphdata()
-    private RestAPI api = new RestAPI();
+    private final RestAPI api = new RestAPI();
     private List<CourseTimePeriod> courseTimePeriodList;
-    private List<Course> courseList;
+    private List<Rate> rateList;
     private String x;
     private String y;
     private ArrayList<Double> doubleArrayList = new ArrayList<>();
@@ -45,18 +45,24 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //api.getAPICourse("BTC", "EUR");
         //Calls method to fill the Comboboxes cbox_crypto & cbox_fiat
         //api.getAllAssets();
-        courseList = api.getAPICourse();
-        System.out.println(courseList.get(0).getAsset_id() + courseList.get(0).getPriceInUSD());
+        CurrencyList.loadCurrencyAssets();
 
+        //calls method for the VBox on the left side
+        rateList = api.getAPICourse();
+        //System.out.println(courseList.get(0).getAsset_id() + courseList.get(0).getPriceInUSD());    //test
+
+
+
+
+        //checks if the currencyAssets file exists
+        //julian altinger wir müssen eine methode erstellen ob es überprüft ob das file exisitiert
 
 
         //Sets the comboboxes
         cbox_crypto.setItems(CurrencyList.cryptoNamesList);
         cbox_fiat.setItems(CurrencyList.fiatNamesList);
-
         FxUtilTest.autoCompleteComboBoxPlus(cbox_crypto, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
         FxUtilTest.autoCompleteComboBoxPlus(cbox_fiat, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
 
@@ -68,12 +74,13 @@ public class Controller implements Initializable {
         //clears the chart
         lchart.getData().clear();
 
+        //sets labels
         lchart.setTitle(cbox_crypto.getValue().toString());
         lc_x.setLabel("Hours");
         lc_y.setLabel(cbox_fiat.getValue().toString());
 
         courseTimePeriodList = api.getAPICourse(cbox_crypto.getValue().toString(), cbox_fiat.getValue().toString(), "1D");     //when combo box is clicked
-        doubleArrayList = CourseList.sortByRate(courseTimePeriodList);
+        doubleArrayList = RateList.sortByRate(courseTimePeriodList);
 
         lc_y.setLowerBound(doubleArrayList.get(0));
         lc_y.setUpperBound(doubleArrayList.get(doubleArrayList.size()-1));

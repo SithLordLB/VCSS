@@ -2,7 +2,7 @@ package sample;
 /*
     Author: LB
     Created on: 14.05.2021
-    Changed on: 20.05.2021
+    Changed on: 12.06.2021
     Changed from: LB
     Description: Controller class for managing code to UI communication
  */
@@ -11,25 +11,23 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class JSONParse {
     private static ObjectMapper objectMapper = new ObjectMapper();
-    private static Course course, course2;
+    private static Rate rate, rate2;
     private static List<CourseTimePeriod> courseTimePeriods;
-    private static List<Course> courseList;
+    private static List<Rate> rateList;
     private static List<Currency> currencies;
 
     //Parses the JSON String to get the values of course rate, time, etc.
-    public static Course parseJSON(String apiSring) throws JsonProcessingException {
+    public static Rate parseJSON(String apiSring) throws JsonProcessingException {
         //Ignores every not known property of the JSON
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        course = objectMapper.readValue(apiSring, sample.Course.class);
-        course2 = new Course(course.getAsset_id_base(), course.getAsset_id_quote(), course.getRate(), course.getTime());
-        return course2;
+        rate = objectMapper.readValue(apiSring, Rate.class);
+        rate2 = new Rate(rate.getAsset_id_base(), rate.getAsset_id_quote(), rate.getRate(), rate.getTime());
+        return rate2;
     }
 
     //Parses the JSON of a specific time periode
@@ -65,8 +63,8 @@ public class JSONParse {
         //Ignores every not known property of the JSON
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         //Puts the objects of the json array string in a list
-        courseList = Arrays.asList(objectMapper.readValue(apiString, Course[].class));
+        rateList = Arrays.asList(objectMapper.readValue(apiString, Rate[].class));
         //System.out.println(courseList.get(0).getAsset_id() + " " + courseList.get(0).getPriceInUSD());
-        return courseList;
+        return rateList;
     }
 }

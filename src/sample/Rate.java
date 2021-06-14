@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
-public class Course {
+public class Rate {
 
     @JsonProperty("asset_id_base")
     private String asset_id_base;
@@ -33,12 +33,12 @@ public class Course {
     private double priceInUSD;
 
     //Default Constructor
-    public Course(){
+    public Rate(){
 
     }
 
     //Constructor
-    public Course(String asset_id_base, String asset_id_quote, double rate, Date time) {
+    public Rate(String asset_id_base, String asset_id_quote, double rate, Date time) {
         this.asset_id_base = asset_id_base;
         this.asset_id_quote = asset_id_quote;
         this.rate = rate;
@@ -46,7 +46,7 @@ public class Course {
     }
 
     //Constructor for the left side thing
-    public Course(String asset_id, double priceInUSD) {
+    public Rate(String asset_id, double priceInUSD) {
         this.asset_id = asset_id;
         this.priceInUSD = priceInUSD;
     }

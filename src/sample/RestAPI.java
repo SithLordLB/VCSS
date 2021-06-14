@@ -17,8 +17,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class RestAPI {
-    private Course course;
-    private List<Course> courseList;
+    private Rate rate;
+    private List<Rate> rateList;
     static final HttpClient httpClient
             = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_1_1)
@@ -29,7 +29,7 @@ public class RestAPI {
 
 
     //Gets with the filter some Crypto to create a List with them
-    public List<Course> getAPICourse() {
+    public List<Rate> getAPICourse() {
         try {
             HttpRequest request;
             request = HttpRequest.newBuilder()
@@ -48,7 +48,7 @@ public class RestAPI {
             //System.out.println(response.body());
 
             //Calls parseJSON
-            courseList = JSONParse.parseJSONSide(response.body());
+            rateList = JSONParse.parseJSONSide(response.body());
 
 
         } catch (IOException iOE) {
@@ -58,11 +58,11 @@ public class RestAPI {
             System.out.println("ERROR: " + iE.toString());
         }
 
-        return courseList;
+        return rateList;
     }
 
     //Gets the course of 2 given currencies
-    public Course getAPICourse(String currency1, String currency2) {
+    public Rate getAPICourse(String currency1, String currency2) {
         try {
             HttpRequest request;
             request = HttpRequest.newBuilder()
@@ -82,7 +82,7 @@ public class RestAPI {
 
             response.body();
             //Calls parseJSON
-            course = JSONParse.parseJSON(response.body());
+            rate = JSONParse.parseJSON(response.body());
 
 
         } catch (IOException iOE) {
@@ -92,7 +92,7 @@ public class RestAPI {
             System.out.println("ERROR: " + iE.toString());
         }
 
-        return course;
+        return rate;
     }
 
     //Gets the exchange rate in a time periode

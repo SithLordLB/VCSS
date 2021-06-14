@@ -6,6 +6,7 @@ package sample;
     Changed from:
     Description: Main class for the program, just opens the window
  */
+import calc.Calculator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,8 +19,12 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
+        Calculator calculator = new Calculator();
+        Stage primstage=new Stage();
+        calculator.start(primstage);
+
         primaryStage.setTitle("BitScout");
-        primaryStage.setScene(new Scene(root, 1280, 720));
+        primaryStage.setScene(new Scene(root, 1024, 600));
 
         primaryStage.show();
     }

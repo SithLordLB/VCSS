@@ -14,9 +14,9 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-public class CourseList {
+public class RateList {
 
-    private static ArrayList<Course> courseList = new ArrayList<>();    //the list in which the courses are stored
+    private static ArrayList<Rate> rateList = new ArrayList<>();    //the list in which the courses are stored
     private static ArrayList<Double> doubleArrayList = new ArrayList<>();
 
     //Sorts the rates from the lowest to the highest
@@ -35,25 +35,25 @@ public class CourseList {
     }
 
     public static double getCourse(String asset_id_base, String asset_id_quote, Date date){  //method for finding a fitting course for a start- and a target currency
-        Course tempCourse = new Course(asset_id_base,asset_id_quote, 0, new Date());
+        Rate tempRate = new Rate(asset_id_base,asset_id_quote, 0, new Date());
 
-        for (Course course : courseList) {    //search the list for a fitting course
+        for (Rate rate : rateList) {    //search the list for a fitting course
 
-            if (asset_id_base.equals(course.getAsset_id_base()) && asset_id_quote.equals(course.getAsset_id_quote()) && date.equals(course.getTime())) {
-                tempCourse = course;          //set the fitting course as the temporary course
+            if (asset_id_base.equals(rate.getAsset_id_base()) && asset_id_quote.equals(rate.getAsset_id_quote()) && date.equals(rate.getTime())) {
+                tempRate = rate;          //set the fitting course as the temporary course
             }
 
         }
 
-        if(tempCourse.getRate() != 0) {
-            return tempCourse.getRate();  //return the fitting course or 0 if no fitting course was found
+        if(tempRate.getRate() != 0) {
+            return tempRate.getRate();  //return the fitting course or 0 if no fitting course was found
         } else{
             return 0;
         }
     }
 
 
-    public static ArrayList<Course> getCourseList() {
-        return courseList;
+    public static ArrayList<Rate> getCourseList() {
+        return rateList;
     }
 }
