@@ -19,10 +19,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
 
-        Calculator calculator = new Calculator();
-        Stage primstage=new Stage();
-        calculator.start(primstage);
-
         primaryStage.setTitle("BitScout");
         primaryStage.setScene(new Scene(root, 1024, 600));
 
