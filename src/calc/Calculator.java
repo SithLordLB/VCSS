@@ -37,7 +37,6 @@ public  class Calculator extends Application {
 
     private Object res = null;
 
-    @Override
     public void start(Stage primaryStage) throws Exception {
         GridPane root = new GridPane();
         primaryStage.setTitle("Taschenrechner");

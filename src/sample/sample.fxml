@@ -10,6 +10,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -23,15 +25,19 @@
                     <children>
                   <Pane prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #0C7FA2;">
                      <children>
-                        <ImageView fx:id="imgv_Logo" fitHeight="251.0" fitWidth="300.0" layoutX="-14.0" layoutY="-72.0" pickOnBounds="true" smooth="false">
+                        <ImageView fx:id="imgv_Logo" fitHeight="114.0" fitWidth="300.0" layoutX="4.0" layoutY="-7.0" pickOnBounds="true" smooth="false">
                            <image>
                               <Image url="@../Images/BitScoutLogo.png" />
                            </image>
                         </ImageView>
-                     </children>
-                  </Pane>
+                     </children></Pane>
                     </children>
                 </HBox>
+              <GridPane fx:id="gpane_defaultRates" gridLinesVisible="true" minHeight="0.0" prefHeight="0.0" prefWidth="300.0" vgap="0.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  </columnConstraints>
+              </GridPane>
             </children>
         </VBox>
         <VBox fx:id="vb_dashboard" layoutX="300.0" prefHeight="600.0" prefWidth="726.0">
@@ -53,17 +59,17 @@
                         <Insets top="10.0" />
                     </VBox.margin>
                     <children>
-                        <ComboBox fx:id="cbox_crypto" onAction="#changeCurrency" prefHeight="31.0" prefWidth="150.0" promptText="Kryptowährung" style="-fx-background-color: transparent;">
+                        <ComboBox fx:id="cbox_crypto" onAction="#changeCurrency" prefHeight="31.0" prefWidth="150.0" promptText="Crypto" style="-fx-background-color: transparent;">
                             <HBox.margin>
                                 <Insets left="30.0" top="15.0" />
                             </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="cbox_fiat" onAction="#changeCurrency" prefHeight="31.0" prefWidth="150.0" promptText="Fiatwährung" style="-fx-background-color: transparent;">
+                        <ComboBox fx:id="cbox_date" prefHeight="31.0" prefWidth="150.0" promptText="Date" style="-fx-background-color: transparent;">
                             <HBox.margin>
                                 <Insets left="30.0" top="15.0" />
                             </HBox.margin>
                         </ComboBox>
-                        <ImageView fx:id="imgv_settings" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imgv_settings" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#startSettings" pickOnBounds="true" preserveRatio="true">
                             <HBox.margin>
                                 <Insets left="300.0" top="10.0" />
                             </HBox.margin>
@@ -76,6 +82,7 @@
                         </ImageView>
                     </children>
                 </HBox>
+
                 <LineChart fx:id="lchart" createSymbols="false" legendVisible="false" prefHeight="398.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF;">
                     <xAxis>
                         <CategoryAxis fx:id="lc_x" animated="false" side="BOTTOM" />

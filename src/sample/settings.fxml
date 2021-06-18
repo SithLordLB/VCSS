@@ -23,9 +23,9 @@
                   <Insets left="15.0" top="15.0" />
                </HBox.margin>
             </Label>
-            <ImageView fx:id="btn_back" fitHeight="22.0" fitWidth="22.0" onMouseClicked="#backtoStartScreen" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btn_back" fitHeight="22.0" fitWidth="22.0" onMouseClicked="#startBack" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets left="190.0" top="18.0" />
+                  <Insets left="190.0" top="22.0" />
                </HBox.margin>
                <image>
                   <Image url="@../Images/Exit.png" />
@@ -36,8 +36,8 @@
             </ImageView>
          </children>
       </HBox>
-      <ComboBox fx:id="cbox_waehrung" editable="true" layoutX="113.0" layoutY="76.0" prefHeight="30.0" prefWidth="120.0" />
-      <Label fx:id="lb_waehrung" layoutX="27.0" layoutY="78.0" text="Währung">
+      <ComboBox fx:id="cbox_fiat" editable="true" layoutX="113.0" layoutY="76.0" prefHeight="30.0" prefWidth="120.0" />
+      <Label layoutX="27.0" layoutY="78.0" text="Currency">
          <font>
             <Font size="16.0" />
          </font>
@@ -48,12 +48,12 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btn_dmOn" layoutX="113.0" layoutY="131.0" mnemonicParsing="false" onAction="#turnDmOn" text="On">
+      <Button fx:id="btn_dmOn" layoutX="113.0" layoutY="131.0" mnemonicParsing="false" text="On">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_dmOff" layoutX="173.0" layoutY="131.0" mnemonicParsing="false" onAction="#turnDmOff" text="Off">
+      <Button fx:id="btn_dmOff" layoutX="173.0" layoutY="131.0" mnemonicParsing="false" text="Off">
          <font>
             <Font size="14.0" />
          </font>

@@ -23,6 +23,7 @@ public class Splashscreen {
     public void startScreen() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         stage.setTitle("BitScout");
+        stage.getIcons().add(new Image("/Images/BitscoutB_Transparent.png"));
         stage.setScene(new Scene(root, 1048, 600));
         stage.show();
     }

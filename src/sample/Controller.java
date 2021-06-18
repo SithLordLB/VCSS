@@ -3,17 +3,22 @@ package sample;
 import javafx.fxml.FXML;
 
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 
 
 
@@ -30,8 +35,9 @@ public class Controller implements Initializable {
     @FXML LineChart<?, ?> lchart;
     @FXML private CategoryAxis lc_x;
     @FXML private NumberAxis lc_y;
-    @FXML private ComboBox cbox_crypto;
-    @FXML private ComboBox cbox_fiat;
+    @FXML private ComboBox cbox_crypto = new ComboBox();
+    @FXML private ComboBox cbox_fiat = new ComboBox();
+    @FXML private GridPane gpane_defaultRates = new GridPane();
 
     //For calling the method fillGraphdata()
     private final RestAPI api = new RestAPI();
@@ -41,6 +47,7 @@ public class Controller implements Initializable {
     private String y;
     private ArrayList<Double> doubleArrayList = new ArrayList<>();
     private XYChart.Series series;
+    private Splashscreen splashscreen = new Splashscreen();
 
 
     @Override
@@ -51,6 +58,7 @@ public class Controller implements Initializable {
 
         //calls method for the VBox on the left side
         rateList = api.getAPICourse();
+        showPopCryptos();
         //System.out.println(courseList.get(0).getAsset_id() + courseList.get(0).getPriceInUSD());    //test
 
 
@@ -63,6 +71,7 @@ public class Controller implements Initializable {
         //Sets the comboboxes
         cbox_crypto.setItems(CurrencyList.cryptoNamesList);
         cbox_fiat.setItems(CurrencyList.fiatNamesList);
+        cbox_fiat.setValue("USD");
         FxUtilTest.autoCompleteComboBoxPlus(cbox_crypto, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
         FxUtilTest.autoCompleteComboBoxPlus(cbox_fiat, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
 
@@ -96,6 +105,33 @@ public class Controller implements Initializable {
             series.getData().add(new XYChart.Data(x, Double.parseDouble(y)));
         }
         lchart.getData().addAll(series);
+    }
+
+    //adds a gridpane to the left which shows the rates of the most popular cryptos
+    public void showPopCryptos(){
+        for(int i=0; i<rateList.size(); i++) {
+            VBox gpCell = new VBox();
+            gpCell.setPadding(new Insets(12,12,12,12));
+            gpane_defaultRates.add(gpCell, 0, i);
+
+            Label cryptoName = new Label();
+            cryptoName.setText(rateList.get(i).getAsset_id());
+            cryptoName.setStyle("-fx-font: 20px Ebrima; -fx-text-fill: white");
+            gpCell.getChildren().add(cryptoName);
+
+            Label cryptoRate = new Label();
+            cryptoRate.setText(rateList.get(i).getPriceInUSD() + " USD");
+            cryptoRate.setStyle("-fx-font: 15px Ebrima; -fx-text-fill: white");
+            gpCell.getChildren().add(cryptoRate);
+        }
+    }
+
+    public void startSettings() throws IOException {
+        splashscreen.startSettings();
+    }
+
+    public void startBack() throws IOException {
+        splashscreen.startScreen();
     }
 
     //Changes the linegraph if the currency is changed
