@@ -11,6 +11,8 @@ import javafx.scene.chart.XYChart;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -38,6 +40,8 @@ public class Controller implements Initializable {
     @FXML private ComboBox cbox_crypto = new ComboBox();
     @FXML private ComboBox cbox_fiat = new ComboBox();
     @FXML private GridPane gpane_defaultRates = new GridPane();
+    @FXML private Label lbl_Date;
+    @FXML private Label lbl_Time;
 
     //For calling the method fillGraphdata()
     private final RestAPI api = new RestAPI();
@@ -75,6 +79,11 @@ public class Controller implements Initializable {
         FxUtilTest.autoCompleteComboBoxPlus(cbox_crypto, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
         FxUtilTest.autoCompleteComboBoxPlus(cbox_fiat, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
 
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        lbl_Date.setText(dtf.format(LocalDateTime.now()));
+
+        DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("HH:mm:ss");
+        lbl_Time.setText(dtf2.format(LocalDateTime.now()));
     }
 
 
