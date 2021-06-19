@@ -73,7 +73,7 @@ public class Controller implements Initializable {
         //Sets the comboboxes
         cbox_crypto.setItems(CurrencyList.cryptoNamesList);
         cbox_fiat.setItems(CurrencyList.fiatNamesList);
-        cbox_fiat.setValue("USD");
+        cbox_fiat.setValue(Settings.fiat);
         FxUtilTest.autoCompleteComboBoxPlus(cbox_crypto, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
         FxUtilTest.autoCompleteComboBoxPlus(cbox_fiat, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
     }
@@ -134,7 +134,7 @@ public class Controller implements Initializable {
 
     //if you want to go back to the Dashboard
     public void startBack() throws IOException {
-        splashscreen.startScreen();
+        splashscreen.startScreen(cbox_fiat.getValue().toString());
         setCurrency();
     }
 

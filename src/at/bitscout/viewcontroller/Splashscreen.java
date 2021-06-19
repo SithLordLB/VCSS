@@ -2,8 +2,8 @@ package at.bitscout.viewcontroller;
 /*
     Author: Sebastian Gojer
     Created on: 12.06.2021 18:50
-    Changed on:
-    Changed from:
+    Changed on: 19.06.2021
+    Changed from: Sebastian Gojer
     Description: Functions for start screen and settings screen
  */
 
@@ -12,7 +12,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import at.bitscout.*;
 
 import java.io.IOException;
 
@@ -20,7 +19,9 @@ public class Splashscreen {
     static Stage stage = new Stage();
 
     //Start screen you see when launching the program
-    public void startScreen() throws IOException {
+    public void startScreen(String cbox_fiat) throws IOException {
+        Settings.fiat = cbox_fiat;
+
         Parent root = FXMLLoader.load(getClass().getResource("./dashboard.fxml"));
         stage.setTitle("BitScout");
         stage.getIcons().add(new Image("/at/bitscout/Images/BitscoutB_Transparent.png"));
