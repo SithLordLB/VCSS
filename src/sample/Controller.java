@@ -2,6 +2,10 @@ package sample;
 
 import javafx.fxml.FXML;
 
+import javafx.scene.Scene;
+import javafx.scene.control.TextArea;
+import javafx.scene.paint.Color;
+import javafx.stage.*;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.chart.CategoryAxis;
@@ -19,6 +23,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 
 
@@ -38,6 +43,7 @@ public class Controller implements Initializable {
     @FXML private ComboBox cbox_crypto = new ComboBox();
     @FXML private ComboBox cbox_fiat = new ComboBox();
     @FXML private GridPane gpane_defaultRates = new GridPane();
+    @FXML private TextArea txt_log;
 
     //For calling the method fillGraphdata()
     private final RestAPI api = new RestAPI();
@@ -61,9 +67,6 @@ public class Controller implements Initializable {
         showPopCryptos();
         //System.out.println(courseList.get(0).getAsset_id() + courseList.get(0).getPriceInUSD());    //test
 
-
-
-
         //checks if the currencyAssets file exists
         //julian altinger wir müssen eine methode erstellen ob es überprüft ob das file exisitiert
 
@@ -74,7 +77,6 @@ public class Controller implements Initializable {
         cbox_fiat.setValue("USD");
         FxUtilTest.autoCompleteComboBoxPlus(cbox_crypto, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
         FxUtilTest.autoCompleteComboBoxPlus(cbox_fiat, (typedText, itemToCompare) -> itemToCompare.toString().toLowerCase().contains(typedText.toLowerCase()));
-
     }
 
 
@@ -137,5 +139,20 @@ public class Controller implements Initializable {
     //Changes the linegraph if the currency is changed
     public void changeCurrency(){
         fillGraphdata();
+    }
+
+    public void openCalc() throws Exception {
+        Stage primaryStage = new Stage();
+        Calculator calc = new Calculator();
+        calc.start(primaryStage);
+    }
+
+    public void showLog() {
+        ACLogger.writeCorrespondence("Warning", "Es gab einen Fehler!");
+        try {
+            txt_log.setText(ACLogger.readCorrespondence());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

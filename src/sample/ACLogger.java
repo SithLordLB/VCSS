@@ -47,10 +47,8 @@ public class ACLogger {
             reserved for an optional sort algorythm (make an if-statement and get at the call a Filter
             */
 
-            stringBuffer.append(lines.get(i)+"/n");
+            stringBuffer.append(lines.get(i)+"\n");
         }
-
-
 
         return  stringBuffer.toString();
     }

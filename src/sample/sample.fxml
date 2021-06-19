@@ -25,7 +25,7 @@
                     <children>
                   <Pane prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: #0C7FA2;">
                      <children>
-                        <ImageView fx:id="imgv_Logo" fitHeight="114.0" fitWidth="300.0" layoutX="4.0" layoutY="-7.0" pickOnBounds="true" smooth="false">
+                        <ImageView fx:id="imgv_Logo" fitHeight="108.0" fitWidth="290.0" layoutX="-20.0" layoutY="-7.0" pickOnBounds="true" smooth="false">
                            <image>
                               <Image url="@../Images/BitScoutLogo.png" />
                            </image>
@@ -44,7 +44,7 @@
             <children>
                 <VBox prefHeight="75.0" prefWidth="724.0" style="-fx-background-color: #FFFFFF;">
                     <children>
-                        <Label fx:id="lb_dashboard" text="Dashboard" textFill="#848383">
+                        <Label fx:id="lb_dashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" text="Dashboard" textFill="#848383">
                             <font>
                                 <Font name="System Bold" size="25.0" />
                             </font>
@@ -59,7 +59,7 @@
                         <Insets top="10.0" />
                     </VBox.margin>
                     <children>
-                        <ComboBox fx:id="cbox_crypto" onAction="#changeCurrency" prefHeight="31.0" prefWidth="150.0" promptText="Crypto" style="-fx-background-color: transparent;">
+                        <ComboBox fx:id="cbox_crypto" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#changeCurrency" prefHeight="31.0" prefWidth="150.0" promptText="Crypto" style="-fx-background-color: transparent;">
                             <HBox.margin>
                                 <Insets left="30.0" top="15.0" />
                             </HBox.margin>
@@ -83,7 +83,7 @@
                     </children>
                 </HBox>
 
-                <LineChart fx:id="lchart" createSymbols="false" legendVisible="false" prefHeight="398.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF;">
+                <LineChart fx:id="lchart" createSymbols="false" legendVisible="false" prefHeight="409.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF;">
                     <xAxis>
                         <CategoryAxis fx:id="lc_x" animated="false" side="BOTTOM" />
                     </xAxis>
@@ -94,11 +94,32 @@
                         <Insets top="20.0" />
                     </VBox.margin>
                 </LineChart>
-                <Label text="© Bitscout, Wels 2021">
-                    <VBox.margin>
-                        <Insets left="580.0" />
-                    </VBox.margin>
-                </Label>
+            <HBox prefHeight="44.0" prefWidth="726.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#openCalc" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@../Images/calc.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <Label text="Calculator">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
             </children>
         </VBox>
     </children>

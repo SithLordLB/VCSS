@@ -1,4 +1,4 @@
-package calc;
+package sample;
 
 /*
 Autor: Lukas Bandalo

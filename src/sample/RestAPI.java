@@ -24,7 +24,7 @@ public class RestAPI {
             .version(HttpClient.Version.HTTP_1_1)
             .build();
     HttpRequest request;
-    private final String apiKey = "A3503CC6-496C-4446-9A50-6823ABD95A85";       //API Key for tests
+    private final String apiKey = "803FBDC3-180C-47D4-B4EB-669EFB2B3E7A";       //API Key for tests
 
 
 
