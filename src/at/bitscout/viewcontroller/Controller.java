@@ -24,10 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -35,15 +32,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
-
-/*
-    Author: LB
-    Created on: 26.04.2021
-    Changed on: 25.06.2021
-    Changed from: LB
-    Changes: Added more date options
-    Description: Controller class for managing code to UI communication
+/** Controller class for managing code to UI communication
+ * @author Bandalo
+ * @version 1.9
  */
 
 public class Controller implements Initializable {
@@ -59,6 +50,8 @@ public class Controller implements Initializable {
     @FXML private Label lbl_Time = new Label();
     @FXML private ImageView imgv_settings = new ImageView();
     @FXML private TextArea txt_log = new TextArea();
+    @FXML private TextField txtfield_searchLog = new TextField();
+    @FXML private Button btn_logSearch = new Button();
 
     //For calling the method fillGraphdata() and showing
     private final RestAPI api = new RestAPI();
@@ -74,7 +67,9 @@ public class Controller implements Initializable {
     private DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("HH:mm:ss");
     private ObservableList <String> dateSelect = FXCollections.observableArrayList("1 Day", "1 Week", "1 Month", "1 Year");
 
-    //initialize method gets called when the program is started
+
+    /** initialize method gets called when the program is started
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Calls method to fill the Comboboxes cbox_crypto & cbox_fiat
@@ -103,9 +98,10 @@ public class Controller implements Initializable {
     }
 
 
-    //Shows the line in the LineChart
+    /** Shows the line in the LineChart*/
     public void fillGraphdata(){
         try{
+            ACLogger.writeCorrespondence("SEARCH","Searching for the Course:");
             //clears the chart
             lchart.getData().clear();
 
@@ -201,11 +197,11 @@ public class Controller implements Initializable {
             lchart.getData().addAll(series);
         }
         catch (NullPointerException e){
-            System.out.println("Crypto currency or date not selected");
+            ACLogger.writeCorrespondence("ERROR","Crypto currency or date not selected");
         }
     }
 
-    //adds a gridpane to the left which shows the rates of the most popular cryptos of the current time
+    /**adds a gridpane to the left which shows the rates of the most popular cryptos of the current time*/
     public void showPopCryptos(){
         for(int i=0; i<rateList.size(); i++) {
             VBox gpCell = new VBox();
@@ -224,31 +220,48 @@ public class Controller implements Initializable {
         }
     }
 
-    //opens the calculator when the calculator icon is pressed
+    /** opens the calculator when the calculator icon is pressed */
     public void openCalc() throws Exception {
+        ACLogger.writeCorrespondence("ERROR","Crypto currency or date not selected");
         Stage primaryStage = new Stage();
         Calculator calc = new Calculator();
         calc.start(primaryStage);
     }
 
-    //shows the log when you press "Show Log" in the settings window
-    public void showLog() {
-        //ACLogger.writeCorrespondence("Warning", "Es gab einen Fehler!");
-        try {
-            txt_log.setText(ACLogger.readCorrespondence());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+    /**shows the log when you press "Show Log" in the settings window*/
+    public void showLog() throws IOException {
+        ACLogger.writeCorrespondence("FETCHING","Fetching output from outputLog.txt and writing it");
+        txtfield_searchLog.setVisible(true);
+        btn_logSearch.setVisible(true);
+        txt_log.setVisible(true);
+        searchLog();
     }
 
+    /**searches the log with a user input filter*/
+    public void searchLog() throws IOException {
+        txt_log.setText(ACLogger.readCorrespondence(txtfield_searchLog.getText().toUpperCase()));
+    }
 
-    //If pressed the the settingslogo on the right top, you go to the settings shit
+    public void selectDate(){
+        ACLogger.writeCorrespondence("MODIFY","Timespan Changed to: "+cbox_date.getValue().toString());
+    }
+    public void selectCrypto(){
+        ACLogger.writeCorrespondence("MODIFY","Crypto Changed to: "+cbox_crypto.getValue().toString());
+    }
+    public void selectFiat(){
+        ACLogger.writeCorrespondence("MODIFY","Fiat Changed to: "+cbox_fiat.getValue().toString());
+    }
+
+    /**If pressed the the settingslogo on the right top, you go to the settings*/
     public void startSettings() throws IOException {
+        ACLogger.writeCorrespondence("START","The Settings Window started");
         splashscreen.startSettings();
     }
 
-    //if you want to go back to the Dashboard
+    /**if you want to go back to the Dashboard*/
     public void startBack() throws IOException {
+        ACLogger.writeCorrespondence("RESTART","Returning to Dashboard");
         splashscreen.startScreen(cbox_fiat.getValue().toString());
     }
 }

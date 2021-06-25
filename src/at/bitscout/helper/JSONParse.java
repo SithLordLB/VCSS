@@ -11,10 +11,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Arrays;
 import java.util.List;
 
-/**
+/** Parses a JSON String into Java Objects
  * @author Bandalo
  * @version 1.2
- * Description: Parses a JSON String into Java Objects
  */
 
 public class JSONParse {
@@ -26,11 +25,10 @@ public class JSONParse {
 
 
 
-    /**
+    /** Parses the JSON String to get the values of course rate, time, etc.
      * @param apiString Response string from api
      * @return Newly created rate
      */
-    //Parses the JSON String to get the values of course rate, time, etc.
     public static Rate parseJSON(String apiString) throws JsonProcessingException {
         //Ignores every not known property of the JSON
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -41,11 +39,10 @@ public class JSONParse {
 
 
 
-    /**
+    /** Parses the JSON of a specific time periode
      * @param apiString Response string from api
      * @return Time period of rate
      */
-    //Parses the JSON of a specific time periode
     public static List parseJSON(String apiString, String time) throws JsonProcessingException {
         //Ignores every not known property of the JSON
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -56,10 +53,10 @@ public class JSONParse {
         return courseTimePeriods;
     }
 
-    /**
+    /** Parses the assets (Crypto and Normal currencies)
      * @param apiString Response string from api
      */
-    //Parses the assets (Crypto and Normal currencies)
+
     public static void parseJSONAsset(String apiString) throws JsonProcessingException {
         //Ignores every not known property of the JSON
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -73,12 +70,11 @@ public class JSONParse {
         System.out.println();
     }
 
-    /**
+    /** Parses the some Crypto currencies for the left side
      * @param apiString Response string from api
      * @return List of all rates
      */
 
-    //Parses the some Crypto currencies for the left side
     public static List parseJSONSide(String apiString) throws JsonProcessingException {
         //Ignores every not known property of the JSON
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

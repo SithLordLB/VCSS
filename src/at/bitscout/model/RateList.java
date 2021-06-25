@@ -1,13 +1,5 @@
 package at.bitscout.model;
 
-/*
-    Author: Julian Helperstorfer
-    Created on: 17.05.2021
-    Changed on: 21.05.2021
-    Changed from:
-    Description: Class for the list that stores all the courses
- */
-
 import at.bitscout.model.CourseTimePeriod;
 import at.bitscout.model.Rate;
 
@@ -17,19 +9,21 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-/**
+/** Class for the list that stores all the courses
  * @author Helperstorfer
  * @version 1.2
- * Description: Class for the list that stores all the courses
  */
 
 public class RateList {
 
-
     private static ArrayList<Rate> rateList = new ArrayList<>();    //the list in which the courses are stored
     private static ArrayList<Double> doubleArrayList = new ArrayList<>();
 
-    //Sorts the rates from the lowest to the highest
+
+    /** Method sorts rate list
+     * @param list list of rates unsorted
+     * @return returns sorted list
+     */
     public static ArrayList<Double> sortByRate(List<CourseTimePeriod> list){
         //clears the double array list
         doubleArrayList = new ArrayList<>();
@@ -44,7 +38,14 @@ public class RateList {
         //Filling the list with courses
     }
 
-    public static double getCourse(String asset_id_base, String asset_id_quote, Date date){  //method for finding a fitting course for a start- and a target currency
+    /** method for finding a fitting course for a start- and a target currency
+     * @param asset_id_base id of asset
+     * @param asset_id_quote quote of asset
+     * @param date selected date
+     * @return returns rate ate date
+     */
+
+    public static double getCourse(String asset_id_base, String asset_id_quote, Date date){
         Rate tempRate = new Rate(asset_id_base,asset_id_quote, 0, new Date());
 
         for (Rate rate : rateList) {    //search the list for a fitting course

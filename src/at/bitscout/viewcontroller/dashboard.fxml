@@ -72,12 +72,12 @@
                         <Insets top="10.0" />
                     </VBox.margin>
                     <children>
-                        <ComboBox fx:id="cbox_crypto" prefHeight="31.0" prefWidth="150.0" promptText="Crypto" style="-fx-background-color: transparent;">
+                        <ComboBox fx:id="cbox_crypto" onAction="#selectCrypto" prefHeight="31.0" prefWidth="150.0" promptText="Crypto" style="-fx-background-color: transparent;">
                             <HBox.margin>
                                 <Insets left="30.0" top="15.0" />
                             </HBox.margin>
                         </ComboBox>
-                        <ComboBox fx:id="cbox_date" prefHeight="31.0" prefWidth="150.0" promptText="Date" style="-fx-background-color: transparent;">
+                        <ComboBox fx:id="cbox_date" onAction="#selectDate" prefHeight="31.0" prefWidth="150.0" promptText="Date" style="-fx-background-color: transparent;">
                             <HBox.margin>
                                 <Insets left="30.0" top="15.0" />
                             </HBox.margin>

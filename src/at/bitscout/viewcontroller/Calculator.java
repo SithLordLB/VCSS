@@ -1,11 +1,5 @@
 package at.bitscout.viewcontroller;
 
-/*
-Autor: Lukas Bandalo
-Beschreibung: Taschenrechner Layout mit Funktionnalität
-Erstelldatum: 08.06.2020 irgendwann um 22 Uhr
-Änderungsdatum: 12.06.2020
- */
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,8 +16,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-
-
+/** Taschenrechner Layout mit Funktionnalität
+ * @author Bandalo
+ * @version 1.2
+ */
 
 public  class Calculator extends Application {
     private Button[] buttons = new Button[12];
@@ -37,6 +33,10 @@ public  class Calculator extends Application {
     //Für das ausrechnen des Labels als string
 
     private Object res = null;
+
+    /** Starting method for calculator
+     * @param primaryStage Primary stage
+     */
 
     public void start(Stage primaryStage) throws Exception {
         GridPane root = new GridPane();
@@ -322,9 +322,13 @@ public  class Calculator extends Application {
         EventHandler<MouseEvent> calc = new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
+                String label = label1.getText();
+                char lastChar = label.charAt(label.length() - 1);
 
-                res = eval(label1.getText());
-                label1.setText(String.valueOf(res));
+                if(Character.isDigit(lastChar)) {
+                    res = eval(label1.getText());
+                    label1.setText(String.valueOf(res));
+                }
 
             }
         };
@@ -457,6 +461,10 @@ public  class Calculator extends Application {
         });
 }
 
+    /** Calculate method
+     * @param label1 result label for calc
+     * @return returns result
+     */
 
     private static Object calc(Label label1){
 
@@ -468,6 +476,10 @@ public  class Calculator extends Application {
         return res;
     }
 
+
+    /** Evaluation method
+     * @param str String to evaluate
+     */
     public static double eval(final String str) {
         return new Object() {
             int pos = -1, ch;

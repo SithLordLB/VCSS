@@ -9,19 +9,12 @@ import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.util.ArrayList;
-/*
-    Author: LB
-    Created on: 08.06.2021
-    Changed on: 14.06.2021
-    Changed from: LB
-    Description: Adds all crypto and fiat currencies in the right list
- */
 
-/**
+/** Adds all crypto and fiat currencies in the right list
  * @author Bandalo
  * @version 1.2
- * Description: Adds all crypto and fiat currencies in the right list
  */
+
 public class CurrencyList {
     //Combo box assets to select a crypto or fiat currency
     static ArrayList<Fiat> fiatArrayList = new ArrayList<>();
@@ -31,6 +24,12 @@ public class CurrencyList {
     public static ObservableList<String> fiatNamesList = FXCollections.observableArrayList();
 
     //Adds a new Crypto in the in the crypto ArrayList
+
+    /** Adds currency to currency list
+     * @param name name of currency
+     * @param isoCode ios code of currency
+     * @param is_Crypto defines if its a crypto or a currency
+     */
     public static void addCurrency(String name, String isoCode, byte is_Crypto){
         if(is_Crypto == 1){
             cryptoArrayList.add(new Crypto(isoCode, name));
@@ -43,12 +42,10 @@ public class CurrencyList {
     }
 
 
-    /**
-     *
+    /**Removes a Crypto from the crypto list
      * @param name Name of Currency
-     * @param is_Crypto Defines if it is a crypto or fiat
+     * @param is_Crypto Defines if it is a crypto or currency
      */
-    //Removes a Crypto from the crypto list
     public void removeCurrency(String name, String isoCode, byte is_Crypto){
         if(is_Crypto == 1){
             cryptoArrayList.remove(new Crypto(isoCode, name));
@@ -60,7 +57,7 @@ public class CurrencyList {
         }
     }
 
-    //loads the assets from the Files so the combobox the values in an instant (for better runtime)
+    /** loads the assets from the Files so the combo box the values in an instant (for better runtime)*/
     public static void loadCurrencyAssets(){
         FileStream fileStream = new FileStream();
         ArrayList<String> crypto;

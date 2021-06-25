@@ -1,11 +1,4 @@
 package at.bitscout.viewcontroller;
-/*
-    Author: Sebastian Gojer
-    Created on: 12.06.2021 18:50
-    Changed on: 19.06.2021
-    Changed from: Sebastian Gojer
-    Description: Functions for start screen and settings screen
- */
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,10 +8,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Splashscreen {
-    static Stage stage = new Stage();
+/** Functions for start screen and settings screen
+ * @author Gojer
+ * @version 1.3
+ */
 
-    //Start screen you see when launching the program
+public class Splashscreen {
+    public static Stage stage = new Stage();
+
+    /** Start screen you see when launching the program
+     * @param cbox_fiat combo box of fiat
+     */
     public void startScreen(String cbox_fiat) throws IOException {
         Settings.fiat = cbox_fiat;
 
@@ -30,10 +30,10 @@ public class Splashscreen {
         stage.show();
     }
 
-    //Creates new stage with the instruction of how Black Jack works
+    /** Creates new stage with the instruction of how Black Jack works*/
     public void startSettings() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
-        stage.setScene(new Scene(root, 372, 400));
+        stage.setScene(new Scene(root, 500, 400));
         stage.show();
     }
 

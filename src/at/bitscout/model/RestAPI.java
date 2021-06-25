@@ -1,12 +1,6 @@
 package at.bitscout.model;
-/*
-    Author: LB
-    Created on: 03.05.2021
-    Changed on: 13.05.2021
-    Changed from: LB
-    Description: This class provides the information for the currencies, exchanges,...
- */
 
+import at.bitscout.helper.ACLogger;
 import at.bitscout.helper.JSONParse;
 
 import java.io.IOException;
@@ -18,10 +12,9 @@ import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
+/** This class provides the information for the currencies, exchanges,...
  * @author Bandalo
  * @version 1.3
- * Description: This class provides the information for the currencies, exchanges,...
  */
 
 public class RestAPI {
@@ -35,8 +28,9 @@ public class RestAPI {
     private final String apiKey = "A3503CC6-496C-4446-9A50-6823ABD95A85";       //API Key for tests
 
 
-
-    //Gets with the filter some Crypto to create a List with them
+    /** Gets with the filter some Crypto to create a List with them
+     * @return returns list of rates
+     */
     public List<Rate> getAPICourse() {
         try {
             HttpRequest request;
@@ -51,6 +45,28 @@ public class RestAPI {
 
             //Outputs the status code
             System.out.println(response.statusCode());
+            //logs the status code of the string
+            switch (response.statusCode()){
+                case 400:
+                    ACLogger.writeCorrespondence("API ERROR","There is something wrong with your request");
+                    break;
+                case 401:
+                    ACLogger.writeCorrespondence("API ERROR","Unauthorized -- Your API key is wrong");
+                    break;
+                case 403:
+                    ACLogger.writeCorrespondence("API ERROR","Forbidden -- Your API key doesnt't have enough privileges to access this resource");
+                    break;
+                case 429:
+                    ACLogger.writeCorrespondence("API ERROR","Too many requests -- You have exceeded your API key rate limits");
+                    break;
+                case 550:
+                    ACLogger.writeCorrespondence("API ERROR","No data -- You requested specific single item that we don't have at this moment.");
+                    break;
+                case 200:
+                    ACLogger.writeCorrespondence("API SUCESS","The Request has been authorized");
+                    break;
+            }
+
 
             //Outputs the content of the request
             //System.out.println(response.body());
@@ -60,22 +76,21 @@ public class RestAPI {
 
 
         } catch (IOException iOE) {
-            System.out.println("ERROR: " + iOE.toString());
+            ACLogger.writeCorrespondence("ERROR","IOException in RestAPI getApiCourse (Key)");
 
         } catch (InterruptedException iE) {
-            System.out.println("ERROR: " + iE.toString());
+            ACLogger.writeCorrespondence("ERROR","Interrupt Exeption in RestAPI getApiCourse");
         }
 
         return rateList;
     }
 
-    /**
-     *
+    /** Gets the course of 2 given currencies
      * @param currency1 Variable of first currency
      * @param currency2 Variable of second currency
      * @return Conversion rate gets returned
      */
-    //Gets the course of 2 given currencies
+
     public Rate getAPICourse(String currency1, String currency2) {
         try {
             HttpRequest request;
@@ -100,23 +115,21 @@ public class RestAPI {
 
 
         } catch (IOException iOE) {
-            System.out.println("ERROR: " + iOE.toString());
+            ACLogger.writeCorrespondence("ERROR","IOE Exeption in RestAPI getAPICourse 1");
 
         } catch (InterruptedException iE) {
-            System.out.println("ERROR: " + iE.toString());
+            ACLogger.writeCorrespondence("ERROR","Interrupt Exeption in RestAPI getAPICourse 1");
         }
 
         return rate;
     }
 
-    /**
-     *
+    /** Gets the exchange rate in a time periode
      * @param currency1 Variable of first currency
      * @param currency2 Variable of second currency
      * @param time Time period
      * @return Returns list of time periods
      */
-    //Gets the exchange rate in a time periode
     public List getAPICourse(String currency1, String currency2, String time) {
         try {
             switch (time) {
@@ -163,6 +176,9 @@ public class RestAPI {
 
             //The content is saved it response
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            if (response.body()!=""){
+                ACLogger.writeCorrespondence("FETCHING","It has Fetched the Course Sucessfully");
+            }
 
             //Outputs the status code
             System.out.println(response.statusCode());
@@ -177,20 +193,18 @@ public class RestAPI {
 
 
         } catch (IOException iOE) {
-            System.out.println("ERROR: " + iOE.toString());
+            ACLogger.writeCorrespondence("ERROR","IOE Exeption in Restapi geAPICourse 2 (Fehler in API)");
 
         } catch (InterruptedException iE) {
-            System.out.println("ERROR: " + iE.toString());
+            ACLogger.writeCorrespondence("ERROR","InterruptedException in Restapi getAPICourse 2 (Fehler in API)");
         }
         return null;
     }
 
-    /**
-     *
+    /** Gets the icons of the currencies
      * @param iconSize Size of Icon
      */
 
-    //Gets the icons of the currencies
     public String getIcon(int iconSize){
         try {
             HttpRequest request;
@@ -214,15 +228,16 @@ public class RestAPI {
 
             //Wenn es zu einem ERROR kommt catch
         }catch(IOException iOE){
-            System.out.println("ERROR: " + iOE.toString());
+            ACLogger.writeCorrespondence("ERROR","IOE Exeption in RestAPI getIcon");
 
         }catch(InterruptedException iE){
-            System.out.println("ERROR: " + iE.toString());
+            ACLogger.writeCorrespondence("ERROR","Interrupt Exeption in RestAPI getIcon");
         }
         return null;
     }
 
-    //Gets a list of all currencies
+
+    /** Gets a list of all currencies*/
     public void getAllAssets(){
         try {
             HttpRequest request;
@@ -245,10 +260,10 @@ public class RestAPI {
 
             //Wenn es zu einem ERROR kommt catch
         }catch(IOException iOE){
-            System.out.println("ERROR: " + iOE.toString());
+            ACLogger.writeCorrespondence("ERROR","IOE Exeption in RestAPI getAllAssets");
 
         }catch(InterruptedException iE){
-            System.out.println("ERROR: " + iE.toString());
+            ACLogger.writeCorrespondence("ERROR","Interrupt Exeption Exeption in RestAPI getAllAssets");
         }
     }
 }

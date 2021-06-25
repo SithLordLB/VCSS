@@ -1,20 +1,9 @@
 package at.bitscout.model;
-/*
-    Author: LB
-    Created on: 08.06.2021
-    Changed on: 08.06.2021
-    Changed from: LB
-    Description: Using for the timeDataSeries of coinapi to put the json response (which is an array) in a List of CourseTimePeriode objects
-                 more about in https://docs.coinapi.io/?java#timeseries-data-get
- */
-
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-/**
+/** Using for the timeDataSeries of coinapi to put the json response (which is an array) in a List of CourseTimePeriode objects
+ *                  more about in https://docs.coinapi.io/?java#timeseries-data-get
  * @author Bandalo
  * @version 1.1
- * Description: Using for the timeDataSeries of coinapi to put the json response (which is an array) in a List of CourseTimePeriode objects
- *                  more about in https://docs.coinapi.io/?java#timeseries-data-get
  */
 
 public class CourseTimePeriod {
@@ -36,7 +25,13 @@ public class CourseTimePeriod {
 
     }
 
-    //Construktor
+    /** Constructor of Course Time Period
+     * @param time_period_start start of time period
+     * @param time_period_end end of time period
+     * @param rate_open opening rate
+     * @param close closing rate
+     */
+
     public CourseTimePeriod(String time_period_start, String time_period_end, String rate_open, String close) {
         this.time_period_start = time_period_start;
         this.time_period_end = time_period_end;

@@ -1,11 +1,8 @@
 package at.bitscout.viewcontroller;
-/*
-    Author: Sebastian Gojer
-    Created on: 19.06.2021
-    Changed on:
-    Changed from:
-    Changes:
-    Description: Stores fiat
+
+/** Stores fiat
+ * @author Gojer
+ * @version 1.2
  */
 public  class Settings {
     public static String fiat = "USD";

@@ -2,18 +2,9 @@ package at.bitscout.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/*
-    Author: LB
-    Created on: 26.04.2021
-    Changed on: 26.04.2021
-    Changed from:
-    Description: Currency class, it lets create for every currency a object, will be put in a list
- */
-
-/**
+/** Currency class, it lets create for every currency a object, will be put in a list
  * @author Bandalo
  * @version 1.1
- * Description: Currency class, it lets create for every currency a object, will be put in a list
  */
 public class Currency {
 
@@ -27,9 +18,12 @@ public class Currency {
     private byte isCrypto;
 
     public Currency(){
-
     }
 
+    /** Constructor for Currencys
+     * @param name name of currency
+     * @param isoCode ios code of currency
+     */
     public Currency(String name, String isoCode) {
         this.name = name;
         this.isoCode = isoCode;

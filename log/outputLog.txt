@@ -1,0 +1,103 @@
+2021-06-25/18:55:2 || <START>  Program has started  <START> 
+2021-06-25/18:57:49 || <START>  Program has started  <START> 
+2021-06-25/19:0:1 || <START>  Program has started  <START> 
+2021-06-25/19:0:36 || <START>  Program has started  <START> 
+2021-06-25/19:0:44 || <FETCHING>  It has Fetched the Course Sucessfully  <FETCHING> 
+2021-06-25/19:0:44 || <Modify>  Timespan Changed to Day  <Modify> 
+2021-06-25/19:4:26 || <START>  Program has started  <START> 
+2021-06-25/19:5:19 || <START>  Program has started  <START> 
+2021-06-25/19:8:18 || <START>  Program has started  <START> 
+2021-06-25/19:12:52 || <START>  Program has started  <START> 
+2021-06-25/19:13:33 || <START>  Program has started  <START> 
+2021-06-25/19:13:38 || <Modify>  Timespan Changed to:1 Day  <Modify> 
+2021-06-25/19:13:44 || <Modify>  Timespan Changed to:1 Week  <Modify> 
+2021-06-25/19:14:5 || <START>  Program has started  <START> 
+2021-06-25/19:14:9 || <Modify>  Timespan Changed to: 1 Day  <Modify> 
+2021-06-25/19:15:51 || <START>  Program has started  <START> 
+2021-06-25/19:16:32 || <START>  Program has started  <START> 
+2021-06-25/19:16:39 || <Modify>  Timespan Changed to: 1 Week  <Modify> 
+2021-06-25/19:17:17 || <START>  Program has started  <START> 
+2021-06-25/19:17:26 || <Modify>  Currency Changed to: XRP  <Modify> 
+2021-06-25/19:17:35 || <Modify>  Timespan Changed to: 1 Week  <Modify> 
+2021-06-25/19:22:21 || <Modify>  Coin Changed to:XRP  <Modify> 
+2021-06-25/19:22:22 || <FETCHING>  It has Fetched the Course Sucessfully  <FETCHING> 
+2021-06-25/19:22:29 || <Modify>  Coin Changed to:XRP  <Modify> 
+2021-06-25/19:22:29 || <FETCHING>  It has Fetched the Course Sucessfully  <FETCHING> 
+2021-06-25/19:22:32 || <Modify>  Coin Changed to:XRP  <Modify> 
+2021-06-25/19:22:33 || <FETCHING>  It has Fetched the Course Sucessfully  <FETCHING> 
+2021-06-25/19:23:33 || <START>  Program has started  <START> 
+2021-06-25/19:23:40 || <Modify>  Currency Changed to: LTC  <Modify> 
+2021-06-25/19:23:41 || <Modify>  Timespan Changed to: 1 Day  <Modify> 
+2021-06-25/19:23:46 || <Search>  Searching for the Course:  <Search> 
+2021-06-25/19:23:47 || <FETCHING>  It has Fetched the Course Sucessfully  <FETCHING> 
+2021-06-25/19:31:25 || <START>  Program has started  <START> 
+2021-06-25/19:31:33 || <START>  Program has started  <START> 
+2021-06-25/19:32:43 || <START>  Program has started  <START> 
+2021-06-25/19:36:2 || <START>  Program has started  <START> 
+2021-06-25/19:36:8 || <MODIFY>  Currency Changed to: NIS  <MODIFY> 
+2021-06-25/19:36:9 || <MODIFY>  Timespan Changed to: 1 Week  <MODIFY> 
+2021-06-25/19:36:10 || <SEARCH>  Searching for the Course:  <SEARCH> 
+2021-06-25/19:36:10 || <FETCHING>  It has Fetched the Course Sucessfully  <FETCHING> 
+2021-06-25/19:36:11 || <START>  The Settings Window started  <START> 
+2021-06-25/19:38:44 || <START>  Program has started  <START> 
+2021-06-25/19:38:49 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/19:42:14 || <START>  Program has started  <START> 
+2021-06-25/19:42:15 || <ERROR>  IOE Exeption in RestAPI getApiCourse  <ERROR> 
+2021-06-25/19:42:15 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/19:42:47 || <START>  Program has started  <START> 
+2021-06-25/19:42:48 || <ERROR>  IOE Exeption in RestAPI getApiCourse 2  <ERROR> 
+2021-06-25/19:42:48 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/19:44:14 || <START>  Program has started  <START> 
+2021-06-25/19:44:15 || <ERROR>  New Key is needed in RestAPI getApiCourse 2  <ERROR> 
+2021-06-25/19:44:15 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/19:46:12 || <START>  Program has started  <START> 
+2021-06-25/19:46:13 || <ERROR>  New Key is needed in RestAPI getApiCourse 2  <ERROR> 
+2021-06-25/19:46:13 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/19:54:23 || <START>  Program has started  <START> 
+2021-06-25/19:54:24 || <ERROR>  New Key is needed in RestAPI getApiCourse 2  <ERROR> 
+2021-06-25/19:54:24 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/19:54:53 || <START>  Program has started  <START> 
+2021-06-25/19:54:55 || <ERROR>  New Key is needed in RestAPI getApiCourse 2  <ERROR> 
+2021-06-25/19:56:0 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/19:56:33 || <START>  Program has started  <START> 
+2021-06-25/19:56:33 || <ERROR>  New Key is needed in RestAPI getApiCourse 2  <ERROR> 
+2021-06-25/19:56:33 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/19:57:20 || <START>  Program has started  <START> 
+2021-06-25/19:57:31 || <START>  The Settings Window started  <START> 
+2021-06-25/20:4:6 || <START>  Program has started  <START> 
+2021-06-25/20:8:54 || <START>  Program has started  <START> 
+2021-06-25/20:8:57 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/20:17:21 || <START>  Program has started  <START> 
+2021-06-25/20:17:22 || <API ERROR>  Too many requests -- You have exceeded your API key rate limits  <API ERROR> 
+2021-06-25/20:17:22 || <ERROR>  IOException in RestAPI getApiCourse  <ERROR> 
+2021-06-25/20:17:22 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/20:27:25 || <START>  Program has started  <START> 
+2021-06-25/20:27:26 || <API ERROR>  Too many requests -- You have exceeded your API key rate limits  <API ERROR> 
+2021-06-25/20:27:26 || <ERROR>  IOException in RestAPI getApiCourse  <ERROR> 
+2021-06-25/20:27:26 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/20:28:14 || <START>  Program has started  <START> 
+2021-06-25/20:28:15 || <API ERROR>  Too many requests -- You have exceeded your API key rate limits  <API ERROR> 
+2021-06-25/20:28:15 || <ERROR>  IOException in RestAPI getApiCourse  <ERROR> 
+2021-06-25/20:28:15 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/20:29:1 || <START>  Program has started  <START> 
+2021-06-25/20:29:2 || <API ERROR>  Too many requests -- You have exceeded your API key rate limits  <API ERROR> 
+2021-06-25/20:29:2 || <ERROR>  IOException in RestAPI getApiCourse  <ERROR> 
+2021-06-25/20:29:2 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/20:30:12 || <START>  Program has started  <START> 
+2021-06-25/20:30:13 || <API ERROR>  Too many requests -- You have exceeded your API key rate limits  <API ERROR> 
+2021-06-25/20:30:13 || <ERROR>  IOException in RestAPI getApiCourse (Key)  <ERROR> 
+2021-06-25/20:30:13 || <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/21:42:6  <START>  Program has started  <START> 
+2021-06-25/21:42:9  <FETCHING>  Fetching output from outputLog.txt and writing it  <FETCHING> 
+2021-06-25/21:43:42  <START>  Program has started  <START> 
+2021-06-25/21:43:46  <FETCHING>  Fetching output from outputLog.txt and writing it  <FETCHING> 
+2021-06-25/21:47:41  <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/21:47:48  <START>  Program has started  <START> 
+2021-06-25/21:47:49  <API ERROR>  Too many requests -- You have exceeded your API key rate limits  <API ERROR> 
+2021-06-25/21:47:50  <ERROR>  IOException in RestAPI getApiCourse (Key)  <ERROR> 
+2021-06-25/21:47:50  <TERMINATE>  Programm has been shutdowned  <TERMINATE> 
+2021-06-25/21:47:59  <START>  Program has started  <START> 
+2021-06-25/21:48:2  <START>  The Settings Window started  <START> 
+2021-06-25/21:48:3  <FETCHING>  Fetching output from outputLog.txt and writing it  <FETCHING> 
+2021-06-25/21:48:25  <RESTART>  Returning to Dashboard  <RESTART> 
+2021-06-25/21:48:28  <TERMINATE>  Programm has been shutdowned  <TERMINATE> 

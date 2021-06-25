@@ -5,15 +5,17 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ap_settingsBg" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="372.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.bitscout.viewcontroller.Controller">
+<AnchorPane fx:id="ap_settingsBg" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.bitscout.viewcontroller.Controller">
    <children>
-      <HBox fx:id="hb_topbar" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="66.0" prefWidth="372.0" style="-fx-background-color: #0C7FA2;">
+      <HBox fx:id="hb_topbar" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="66.0" prefWidth="500.0" style="-fx-background-color: #0C7FA2;">
          <children>
             <Label maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="38.0" prefWidth="120.0" text="Settings" textFill="WHITE">
                <font>
@@ -25,7 +27,7 @@
             </Label>
             <ImageView fx:id="btn_back" fitHeight="22.0" fitWidth="22.0" onMouseClicked="#startBack" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
-                  <Insets left="190.0" top="22.0" />
+                  <Insets left="330.0" top="22.0" />
                </HBox.margin>
                <image>
                   <Image url="@../Images/Exit.png" />
@@ -36,27 +38,16 @@
             </ImageView>
          </children>
       </HBox>
-      <ComboBox fx:id="cbox_fiat" editable="true" layoutX="113.0" layoutY="76.0" prefHeight="30.0" prefWidth="120.0" />
+      <ComboBox fx:id="cbox_fiat" editable="true" layoutX="113.0" layoutY="76.0" onAction="#selectFiat" prefHeight="30.0" prefWidth="120.0" />
       <Label layoutX="23.0" layoutY="79.0" text="Currency">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="233.0" layoutY="367.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="18.0" prefWidth="130.0" text="© Bitscout, Wels 2021" />
-      <Label fx:id="lb_darkmode" layoutX="20.0" layoutY="131.0" prefHeight="30.0" prefWidth="80.0" text="Darkmode">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button fx:id="btn_dmOn" layoutX="113.0" layoutY="131.0" mnemonicParsing="false" text="On">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="btn_dmOff" layoutX="173.0" layoutY="131.0" mnemonicParsing="false" text="Off">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <Label layoutX="366.0" layoutY="368.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="18.0" prefWidth="120.0" text="© Bitscout, Wels 2021" />
+      <TextArea fx:id="txt_log" editable="false" layoutX="23.0" layoutY="153.0" prefHeight="200.0" prefWidth="459.0" visible="false" />
+      <Label layoutX="23.0" layoutY="369.0" onMouseClicked="#showLog" text="Show Log" textFill="#0000ee" underline="true" />
+      <TextField fx:id="txtfield_searchLog" layoutX="23.0" layoutY="124.0" promptText="e.g. START" visible="false" />
+      <Button fx:id="btn_logSearch" layoutX="186.0" layoutY="124.0" mnemonicParsing="false" onAction="#searchLog" style="-fx-background-color: none; -fx-border-color: #848383;" text="Search" textFill="#848383" visible="false" />
    </children>
 </AnchorPane>

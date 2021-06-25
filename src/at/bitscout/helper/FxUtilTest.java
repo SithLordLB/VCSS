@@ -7,14 +7,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-/**
+/** Autocomplete Class for the combo boxes
  * @author Bandalo
  * @version 1.0
- * Description: Autocomplete Class for the combo boxes
  */
 public class FxUtilTest {
 
-    /**
+    /** Class for AutoComplete Combo box
      * @param <T> Autocomplete Comparator
      */
 
@@ -22,7 +21,7 @@ public class FxUtilTest {
         boolean matches(String typedText, T objectToCompare);
     }
 
-    /**
+    /** Base method for auto complete
      * @param comboBox The combo box where the Currency names will be displayed
      * @param comparatorMethod The method Comparator
      */
@@ -101,8 +100,7 @@ public class FxUtilTest {
                 }
             }
 
-            /**
-             *
+            /** Moves Caret
              * @param textLength Length of Text
              */
 
@@ -117,8 +115,7 @@ public class FxUtilTest {
         });
     }
 
-    /**
-     *
+    /** Gets the Value of Combo box
      * @param comboBox The combo box
      * @return Items of Combo box
      */

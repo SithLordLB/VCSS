@@ -9,18 +9,21 @@ import javafx.scene.paint.Color;
 
 import java.text.DecimalFormat;
 
-/**
+/**  This class is a container for the hover effect on a point of the graph, it lets a label appear
  * @author Bandalo
  * @version 1.3
- * Description: This class is a container for the hover effect on a point of the graph, it lets a label appear
  */
 
-/** a node which displays a value on hover, but is otherwise empty */
 public class HoveredThresholdNode extends StackPane{
     private DecimalFormat df = new DecimalFormat("####0.00");       //sets a double to 2 decimal
     private Label label;
 
     //Constructor
+
+    /** Constructor for Hover Effect class
+     * @param priorValue Attribute Prior Value
+     * @param value Attribute Value
+     */
     public HoveredThresholdNode(String priorValue, double value) {
         //sets the label box
         setPrefSize(10, 10);
@@ -46,7 +49,9 @@ public class HoveredThresholdNode extends StackPane{
         });
     }
 
-    //returns a label and sets it configs and text
+    /** returns a label and sets it configs and text
+     * @return Label gets returned
+     */
     private Label createDataThresholdLabel(int priorValue, double value) {
         label = new Label(df.format(value) + "");
         label.getStyleClass().addAll("default-color0", "chart-line-symbol", "chart-series-line");

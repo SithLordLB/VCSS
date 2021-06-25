@@ -1,19 +1,12 @@
 package at.bitscout.model;
-/*
-    Author: LB
-    Created on: 26.04.2021
-    Changed on: 20.05.2021
-    Changed from: LB    added some JSON Property stuff
-    Description: Creates courses for the currencies
- */
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
-/**
+/** Creates courses for the currencies
  * @author Bandalo
  * @version 1.3
- * Description: Creates courses for the currencies
  */
 
 public class Rate {
@@ -43,7 +36,13 @@ public class Rate {
 
     }
 
-    //Constructor
+    /** Constructor of Rate
+     * @param asset_id_base ID of asset
+     * @param asset_id_quote ID of quote
+     * @param rate Rate
+     * @param time Timestamp of rate
+     */
+
     public Rate(String asset_id_base, String asset_id_quote, double rate, Date time) {
         this.asset_id_base = asset_id_base;
         this.asset_id_quote = asset_id_quote;
