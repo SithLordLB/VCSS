@@ -101,7 +101,8 @@ public class RestAPI {
     public List getAPICourse(String currency1, String currency2, String time) {
         try {
             switch (time) {
-                case "1D":
+                //response the rate from the past 24h (in 1h steps)
+                case "1 Day":
                     request = HttpRequest.newBuilder()
                             .GET()
                             .uri(URI.create("https://rest.coinapi.io/v1/exchangerate/" + currency1 + "/" + currency2 + "/history?period_id=1HRS&time_start=" + LocalDate.now().minusDays(1) + "T00:00:00&time_end=" + LocalDate.now() + "T00:00:00"))
@@ -109,8 +110,34 @@ public class RestAPI {
                             .build();
                     System.out.println(LocalDate.now());
                     break;
+                    //response the rate from the past 7 days (in 12h steps)
+                case "1 Week":
+                    request = HttpRequest.newBuilder()
+                            .GET()
+                            .uri(URI.create("https://rest.coinapi.io/v1/exchangerate/" + currency1 + "/" + currency2 + "/history?period_id=1DAY&time_start=" + LocalDate.now().minusDays(7) + "T00:00:00&time_end=" + LocalDate.now() + "T00:00:00"))
+                            .headers("X-CoinAPI-Key", apiKey, "Accept", "application/json")         //Schlüssel in einem File klatschen und User cock blocken amena koi fick
+                            .build();
+                    System.out.println(LocalDate.now());
+                    break;
+                    //response the rate from the past 30 days (in 1 day steps)
+                case "1 Month":
+                    request = HttpRequest.newBuilder()
+                            .GET()
+                            .uri(URI.create("https://rest.coinapi.io/v1/exchangerate/" + currency1 + "/" + currency2 + "/history?period_id=1DAY&time_start=" + LocalDate.now().minusDays(30) + "T00:00:00&time_end=" + LocalDate.now() + "T00:00:00"))
+                            .headers("X-CoinAPI-Key", apiKey, "Accept", "application/json")         //Schlüssel in einem File klatschen und User cock blocken amena koi fick
+                            .build();
+                    System.out.println(LocalDate.now());
+                    break;
+                    //response the rate from the past 365 days (in 30 day steps)
+                case "1 Year":
+                    request = HttpRequest.newBuilder()
+                            .GET()
+                            .uri(URI.create("https://rest.coinapi.io/v1/exchangerate/" + currency1 + "/" + currency2 + "/history?period_id=10DAY&time_start=" + LocalDate.now().minusDays(365) + "T00:00:00&time_end=" + LocalDate.now() + "T00:00:00"))
+                            .headers("X-CoinAPI-Key", apiKey, "Accept", "application/json")         //Schlüssel in einem File klatschen und User cock blocken amena koi fick
+                            .build();
+                    System.out.println(LocalDate.now());
                 default:
-                    System.out.println("Coming soon in se alpha");
+                    System.out.println("Coming soon in the alpha");
                     break;
 
             }
@@ -126,7 +153,7 @@ public class RestAPI {
 
             response.body();
             //Calls parseJSON
-            List list = JSONParse.parseJSON(response.body(), "1D");
+            List list = JSONParse.parseJSON(response.body(), time);
             return list;
 
 

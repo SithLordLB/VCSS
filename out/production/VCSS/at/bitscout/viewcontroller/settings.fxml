@@ -37,7 +37,7 @@
          </children>
       </HBox>
       <ComboBox fx:id="cbox_fiat" editable="true" layoutX="113.0" layoutY="76.0" prefHeight="30.0" prefWidth="120.0" />
-      <Label layoutX="27.0" layoutY="78.0" text="Currency">
+      <Label layoutX="23.0" layoutY="79.0" text="Currency">
          <font>
             <Font size="16.0" />
          </font>

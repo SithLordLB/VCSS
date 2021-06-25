@@ -32,7 +32,7 @@ public class Splashscreen {
 
     //Creates new stage with the instruction of how Black Jack works
     public void startSettings() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("./settings.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("settings.fxml"));
         stage.setScene(new Scene(root, 372, 400));
         stage.show();
     }

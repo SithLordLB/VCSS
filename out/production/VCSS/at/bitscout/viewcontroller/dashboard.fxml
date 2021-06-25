@@ -5,8 +5,12 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,7 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: white;" styleClass="parent" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.bitscout.viewcontroller.Controller">
+<AnchorPane fx:id="apane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" style="-fx-background-color: white;" styleClass="parent" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.bitscout.viewcontroller.Controller">
     <children>
         <VBox fx:id="vb_sidebox" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #484848;">
             <children>
@@ -33,11 +37,20 @@
                      </children></Pane>
                     </children>
                 </HBox>
-              <GridPane fx:id="gpane_defaultRates" gridLinesVisible="true" minHeight="0.0" prefHeight="0.0" prefWidth="300.0" vgap="0.0">
+              <GridPane fx:id="gpane_defaultRates" minHeight="0.0" prefHeight="0.0" prefWidth="300.0" style="-fx-border-color: white;" vgap="0.0">
                   <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   </columnConstraints>
               </GridPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <VBox.margin>
+                        <Insets top="300.0" />
+                    </VBox.margin>
+                    <children>
+                        <Label fx:id="lbl_Date" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="164.0" prefHeight="31.0" prefWidth="91.0" text="Date" textAlignment="CENTER" textFill="WHITE" />
+                        <Label fx:id="lbl_Time" alignment="CENTER" layoutX="205.0" layoutY="164.0" prefHeight="31.0" prefWidth="91.0" text="Time" textFill="WHITE" />
+                    </children>
+                </AnchorPane>
             </children>
         </VBox>
         <VBox fx:id="vb_dashboard" layoutX="300.0" prefHeight="600.0" prefWidth="726.0">
@@ -59,7 +72,7 @@
                         <Insets top="10.0" />
                     </VBox.margin>
                     <children>
-                        <ComboBox fx:id="cbox_crypto" onAction="#changeCurrency" prefHeight="31.0" prefWidth="150.0" promptText="Crypto" style="-fx-background-color: transparent;">
+                        <ComboBox fx:id="cbox_crypto" prefHeight="31.0" prefWidth="150.0" promptText="Crypto" style="-fx-background-color: transparent;">
                             <HBox.margin>
                                 <Insets left="30.0" top="15.0" />
                             </HBox.margin>
@@ -69,6 +82,21 @@
                                 <Insets left="30.0" top="15.0" />
                             </HBox.margin>
                         </ComboBox>
+                  <Button mnemonicParsing="false" onAction="#fillGraphdata" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: none; -fx-border-color: #848383;" text="Search" textFill="#848383">
+                     <HBox.margin>
+                        <Insets left="30.0" top="17.0" />
+                     </HBox.margin>
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Button>
                         <ImageView fx:id="imgv_settings" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#startSettings" pickOnBounds="true" preserveRatio="true">
                             <HBox.margin>
                                 <Insets left="300.0" top="10.0" />

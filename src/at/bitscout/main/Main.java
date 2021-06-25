@@ -1,4 +1,4 @@
-package at.bitscout;
+package at.bitscout.main;
 /*
     Author: LB
     Created on: 26.04.2021

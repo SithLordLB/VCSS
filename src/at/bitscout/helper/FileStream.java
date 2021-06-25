@@ -21,6 +21,7 @@ public class FileStream {
         //System.out.println(cl);
     }
 
+    //writes an object to an file
     public void WriteObjectToFile(String filepath,Object serObj) {
 
         try {
@@ -37,6 +38,7 @@ public class FileStream {
         }
     }
 
+    //reads the objects from the file of the given path
     public Object ReadObjectFromFile(String filepath) {
 
         try {

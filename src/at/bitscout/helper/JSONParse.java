@@ -2,9 +2,9 @@ package at.bitscout.helper;
 /*
     Author: LB
     Created on: 14.05.2021
-    Changed on: 12.06.2021
+    Changed on: 25.06.2021
     Changed from: LB
-    Description: Controller class for managing code to UI communication
+    Description: Parses a JSON String into Java Objects
  */
 
 import at.bitscout.model.CourseTimePeriod;
