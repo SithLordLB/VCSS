@@ -7,7 +7,15 @@ package at.bitscout.model;
     Description: Using for the timeDataSeries of coinapi to put the json response (which is an array) in a List of CourseTimePeriode objects
                  more about in https://docs.coinapi.io/?java#timeseries-data-get
  */
+
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+/**
+ * @author Bandalo
+ * @version 1.1
+ * Description: Using for the timeDataSeries of coinapi to put the json response (which is an array) in a List of CourseTimePeriode objects
+ *                  more about in https://docs.coinapi.io/?java#timeseries-data-get
+ */
 
 public class CourseTimePeriod {
 

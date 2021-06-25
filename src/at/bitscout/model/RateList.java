@@ -17,7 +17,14 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author Helperstorfer
+ * @version 1.2
+ * Description: Class for the list that stores all the courses
+ */
+
 public class RateList {
+
 
     private static ArrayList<Rate> rateList = new ArrayList<>();    //the list in which the courses are stored
     private static ArrayList<Double> doubleArrayList = new ArrayList<>();

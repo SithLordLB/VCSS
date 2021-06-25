@@ -9,6 +9,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
     Changed from:
     Description: Currency class, it lets create for every currency a object, will be put in a list
  */
+
+/**
+ * @author Bandalo
+ * @version 1.1
+ * Description: Currency class, it lets create for every currency a object, will be put in a list
+ */
 public class Currency {
 
     @JsonProperty("asset_id")

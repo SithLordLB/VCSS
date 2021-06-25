@@ -4,7 +4,7 @@ package at.bitscout.model;
     Created on: 03.05.2021
     Changed on: 13.05.2021
     Changed from: LB
-    Description: This class provides the information for the currencies, exchanges,......
+    Description: This class provides the information for the currencies, exchanges,...
  */
 
 import at.bitscout.helper.JSONParse;
@@ -18,6 +18,12 @@ import java.net.http.HttpResponse;
 import java.time.LocalDate;
 import java.util.List;
 
+/**
+ * @author Bandalo
+ * @version 1.3
+ * Description: This class provides the information for the currencies, exchanges,...
+ */
+
 public class RestAPI {
     private Rate rate;
     private List<Rate> rateList;
@@ -26,7 +32,7 @@ public class RestAPI {
             .version(HttpClient.Version.HTTP_1_1)
             .build();
     HttpRequest request;
-    private final String apiKey = "803FBDC3-180C-47D4-B4EB-669EFB2B3E7A";       //API Key for tests
+    private final String apiKey = "A3503CC6-496C-4446-9A50-6823ABD95A85";       //API Key for tests
 
 
 
@@ -63,6 +69,12 @@ public class RestAPI {
         return rateList;
     }
 
+    /**
+     *
+     * @param currency1 Variable of first currency
+     * @param currency2 Variable of second currency
+     * @return Conversion rate gets returned
+     */
     //Gets the course of 2 given currencies
     public Rate getAPICourse(String currency1, String currency2) {
         try {
@@ -97,6 +109,13 @@ public class RestAPI {
         return rate;
     }
 
+    /**
+     *
+     * @param currency1 Variable of first currency
+     * @param currency2 Variable of second currency
+     * @param time Time period
+     * @return Returns list of time periods
+     */
     //Gets the exchange rate in a time periode
     public List getAPICourse(String currency1, String currency2, String time) {
         try {
@@ -165,6 +184,11 @@ public class RestAPI {
         }
         return null;
     }
+
+    /**
+     *
+     * @param iconSize Size of Icon
+     */
 
     //Gets the icons of the currencies
     public String getIcon(int iconSize){

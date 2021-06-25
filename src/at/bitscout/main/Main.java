@@ -12,6 +12,12 @@ import at.bitscout.viewcontroller.Splashscreen;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+/**
+ * @author Bandalo
+ * @version 1.3
+ * Description: Main Class of the program
+ */
+
 public class Main extends Application {
 
     @Override

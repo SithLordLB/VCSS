@@ -6,18 +6,26 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-/*
-    Author: LB
-    Created on: 09.06.2021
-    Changed on: 09.06.2021
-    Changed from: LB
-    Description: Autocomplete Class for the comboxes
+
+/**
+ * @author Bandalo
+ * @version 1.0
+ * Description: Autocomplete Class for the combo boxes
  */
 public class FxUtilTest {
+
+    /**
+     * @param <T> Autocomplete Comparator
+     */
 
     public interface AutoCompleteComparator<T> {
         boolean matches(String typedText, T objectToCompare);
     }
+
+    /**
+     * @param comboBox The combo box where the Currency names will be displayed
+     * @param comparatorMethod The method Comparator
+     */
 
     public static<T> void autoCompleteComboBoxPlus(ComboBox<T> comboBox, AutoCompleteComparator<T> comparatorMethod) {
         ObservableList<T> data = comboBox.getItems();
@@ -93,6 +101,11 @@ public class FxUtilTest {
                 }
             }
 
+            /**
+             *
+             * @param textLength Length of Text
+             */
+
             private void moveCaret(int textLength) {
                 if (caretPos == -1) {
                     comboBox.getEditor().positionCaret(textLength);
@@ -104,6 +117,11 @@ public class FxUtilTest {
         });
     }
 
+    /**
+     *
+     * @param comboBox The combo box
+     * @return Items of Combo box
+     */
     public static<T> T getComboBoxValue(ComboBox<T> comboBox){
         if (comboBox.getSelectionModel().getSelectedIndex() < 0) {
             return null;

@@ -10,6 +10,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
+/**
+ * @author Bandalo
+ * @version 1.3
+ * Description: Creates courses for the currencies
+ */
+
 public class Rate {
 
     @JsonProperty("asset_id_base")
@@ -43,12 +49,6 @@ public class Rate {
         this.asset_id_quote = asset_id_quote;
         this.rate = rate;
         this.time = time;
-    }
-
-    //Constructor for the left side thing
-    public Rate(String asset_id, double priceInUSD) {
-        this.asset_id = asset_id;
-        this.priceInUSD = priceInUSD;
     }
 
     //Getter and Setter

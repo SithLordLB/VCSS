@@ -16,6 +16,12 @@ import java.util.ArrayList;
     Changed from: LB
     Description: Adds all crypto and fiat currencies in the right list
  */
+
+/**
+ * @author Bandalo
+ * @version 1.2
+ * Description: Adds all crypto and fiat currencies in the right list
+ */
 public class CurrencyList {
     //Combo box assets to select a crypto or fiat currency
     static ArrayList<Fiat> fiatArrayList = new ArrayList<>();
@@ -36,7 +42,13 @@ public class CurrencyList {
         }
     }
 
-    //Removes a Crypto in the crypto list
+
+    /**
+     *
+     * @param name Name of Currency
+     * @param is_Crypto Defines if it is a crypto or fiat
+     */
+    //Removes a Crypto from the crypto list
     public void removeCurrency(String name, String isoCode, byte is_Crypto){
         if(is_Crypto == 1){
             cryptoArrayList.remove(new Crypto(isoCode, name));

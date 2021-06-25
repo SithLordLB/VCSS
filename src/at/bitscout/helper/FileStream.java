@@ -1,16 +1,22 @@
 package at.bitscout.helper;
 
 import java.io.*;
-/*
-    Author: JA
-    Created on: 12.06.2021
-    Changed on: 14.06.2021
-    Changed from: JA
-    Description: Writes and reads objects from a file
+
+/**
+ * @author Altinger
+ * @version 1.1
+ * Description: Writes and reads objects from a file
  */
+
+
+
 public class FileStream {
+    /**
+     * @param filepath Destination of file
+     * @param observableList List of all assets
+     */
+
     public static void AccessFileStream(String filepath, Object observableList) {
-        //private static final String filepath="C:\\Users\\nikos7\\Desktop\\obj";
 
         FileStream objectIO = new FileStream();
 
@@ -22,6 +28,12 @@ public class FileStream {
     }
 
     //writes an object to an file
+
+    /**
+     *
+     * @param filepath Destination of file
+     * @param serObj The objects from the observable list
+     */
     public void WriteObjectToFile(String filepath,Object serObj) {
 
         try {
@@ -37,6 +49,12 @@ public class FileStream {
             ex.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param filepath Destination of file
+     * @return The object from files
+     */
 
     //reads the objects from the file of the given path
     public Object ReadObjectFromFile(String filepath) {

@@ -10,15 +10,27 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 
-/*
- * Activity Logger from Marko
- * Version Date: 03.06.2021 10:07
- */
+/**
+ * @author Marko
+ * @version 1.1
+ * Logger Class
+ **/
 
 public class ACLogger {
     final static String txtFileName="outputLog.txt";
     static FileWriter fW=null;
 
+    /**
+     * @param activityType Shows type of error.
+     * @param activityText Shows error message
+     **/
+
+    /**
+     * writes the Log in a file
+     * @author Marko
+     * @version 1.1
+     *
+     **/
     public static void writeCorrespondence(String activityType, String activityText) { // This Method writes activityType and activityText into the new File called output.txt
         LocalTime errorTime=LocalTime.now();
         LocalDate errorDate=LocalDate.now();
@@ -38,16 +50,17 @@ public class ACLogger {
         }
 
     }
+
     public static String readCorrespondence() throws IOException {      //this Method reads every line and returns a String for a text area
         StringBuffer stringBuffer=new StringBuffer();
         List<String> lines = Files.readAllLines(Paths.get(txtFileName));
-        for (int i = 0; i < lines.size(); i++) {
+        for (String line : lines) {
 
             /*
             reserved for an optional sort algorythm (make an if-statement and get at the call a Filter
             */
 
-            stringBuffer.append(lines.get(i)+"\n");
+            stringBuffer.append(line).append("\n");
         }
 
 

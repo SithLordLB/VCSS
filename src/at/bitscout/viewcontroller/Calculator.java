@@ -13,6 +13,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -41,6 +42,7 @@ public  class Calculator extends Application {
         GridPane root = new GridPane();
         primaryStage.setTitle("Taschenrechner");
         Scene scene = new Scene(root, 240, 360, Color.WHITE);
+        primaryStage.getIcons().add(new Image("/at/bitscout/Images/calc.png"));
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();

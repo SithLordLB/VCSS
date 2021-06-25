@@ -1,11 +1,4 @@
 package at.bitscout.helper;
-/*
-    Author: LB
-    Created on: 14.05.2021
-    Changed on: 25.06.2021
-    Changed from: LB
-    Description: Parses a JSON String into Java Objects
- */
 
 import at.bitscout.model.CourseTimePeriod;
 import at.bitscout.model.Currency;
@@ -18,6 +11,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author Bandalo
+ * @version 1.2
+ * Description: Parses a JSON String into Java Objects
+ */
+
 public class JSONParse {
     private static ObjectMapper objectMapper = new ObjectMapper();
     private static Rate rate, rate2;
@@ -25,15 +24,27 @@ public class JSONParse {
     private static List<Rate> rateList;
     private static List<Currency> currencies;
 
+
+
+    /**
+     * @param apiString Response string from api
+     * @return Newly created rate
+     */
     //Parses the JSON String to get the values of course rate, time, etc.
-    public static Rate parseJSON(String apiSring) throws JsonProcessingException {
+    public static Rate parseJSON(String apiString) throws JsonProcessingException {
         //Ignores every not known property of the JSON
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        rate = objectMapper.readValue(apiSring, Rate.class);
+        rate = objectMapper.readValue(apiString, Rate.class);
         rate2 = new Rate(rate.getAsset_id_base(), rate.getAsset_id_quote(), rate.getRate(), rate.getTime());
         return rate2;
     }
 
+
+
+    /**
+     * @param apiString Response string from api
+     * @return Time period of rate
+     */
     //Parses the JSON of a specific time periode
     public static List parseJSON(String apiString, String time) throws JsonProcessingException {
         //Ignores every not known property of the JSON
@@ -45,6 +56,9 @@ public class JSONParse {
         return courseTimePeriods;
     }
 
+    /**
+     * @param apiString Response string from api
+     */
     //Parses the assets (Crypto and Normal currencies)
     public static void parseJSONAsset(String apiString) throws JsonProcessingException {
         //Ignores every not known property of the JSON
@@ -59,7 +73,12 @@ public class JSONParse {
         System.out.println();
     }
 
-    //Parses the some Crypto currencies for the left side fuck
+    /**
+     * @param apiString Response string from api
+     * @return List of all rates
+     */
+
+    //Parses the some Crypto currencies for the left side
     public static List parseJSONSide(String apiString) throws JsonProcessingException {
         //Ignores every not known property of the JSON
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);

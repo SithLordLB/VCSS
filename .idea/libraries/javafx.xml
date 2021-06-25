@@ -2,15 +2,22 @@
   <library name="javafx">
     <CLASSES>
       <root url="file://$USER_HOME$/.jdks/javafx-sdk-11.0.2/lib" />
+      <root url="file://$VM$" />
+      <root url="file://$VM$" />
     </CLASSES>
     <JAVADOC />
     <NATIVE>
       <root url="file://$USER_HOME$/.jdks/javafx-sdk-11.0.2/lib" />
+      <root url="file://$VM$" />
     </NATIVE>
     <SOURCES>
       <root url="file://$USER_HOME$/.jdks/javafx-sdk-11.0.2/lib" />
+      <root url="file://$VM$" />
+      <root url="file://$VM$" />
     </SOURCES>
+    <jarDirectory url="file://$VM$" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/.jdks/javafx-sdk-11.0.2/lib" recursive="false" />
+    <jarDirectory url="file://$VM$" recursive="false" type="SOURCES" />
     <jarDirectory url="file://$USER_HOME$/.jdks/javafx-sdk-11.0.2/lib" recursive="false" type="SOURCES" />
   </library>
 </component>

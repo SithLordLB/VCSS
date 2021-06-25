@@ -2,6 +2,7 @@ package at.bitscout.viewcontroller;
 
 import at.bitscout.helper.ACLogger;
 import at.bitscout.helper.FxUtilTest;
+import at.bitscout.helper.HoveredThresholdNode;
 import at.bitscout.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -67,6 +68,7 @@ public class Controller implements Initializable {
     private String y;
     private ArrayList<Double> doubleArrayList = new ArrayList<>();
     private XYChart.Series series;
+    private XYChart.Data data;
     private Splashscreen splashscreen = new Splashscreen();
     private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
     private DateTimeFormatter dtf2 = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -136,7 +138,9 @@ public class Controller implements Initializable {
 
                         y = obj.getRate_open();
                         //System.out.println(x + " " + y);
-                        series.getData().add(new XYChart.Data(x, Double.parseDouble(y)));
+                        data = new XYChart.Data(x, Double.parseDouble(y));
+                        data.setNode(new HoveredThresholdNode(x, Double.parseDouble(y)));
+                        series.getData().add(data);
                     }
                     break;
                 case "1 Week":
@@ -150,7 +154,10 @@ public class Controller implements Initializable {
 
                         y = obj.getRate_open();
                         //System.out.println(x + " " + y);
-                        series.getData().add(new XYChart.Data(x, Double.parseDouble(y)));
+                        //series.getData().add(new XYChart.Data(x, Double.parseDouble(y)));
+                        data = new XYChart.Data(x, Double.parseDouble(y));
+                        data.setNode(new HoveredThresholdNode(x, Double.parseDouble(y)));
+                        series.getData().add(data);
                     }
                     break;
                 case "1 Month":
@@ -165,7 +172,10 @@ public class Controller implements Initializable {
 
                         y = obj.getRate_open();
                         //System.out.println(x + " " + y);
-                        series.getData().add(new XYChart.Data(x, Double.parseDouble(y)));
+                        //series.getData().add(new XYChart.Data(x, Double.parseDouble(y)));
+                        data = new XYChart.Data(x, Double.parseDouble(y));
+                        data.setNode(new HoveredThresholdNode(x, Double.parseDouble(y)));
+                        series.getData().add(data);
                     }
                     break;
                 case "1 Year":
@@ -179,8 +189,11 @@ public class Controller implements Initializable {
                         x = x.substring(x.indexOf("-")+1, x.indexOf("T")-3);
 
                         y = obj.getRate_open();
-                        System.out.println(x + " " + y);
-                        series.getData().add(new XYChart.Data(x, Double.parseDouble(y)));
+                        //System.out.println(x + " " + y);
+                        //series.getData().add(new XYChart.Data(x, Double.parseDouble(y)));
+                        data = new XYChart.Data(x, Double.parseDouble(y));
+                        data.setNode(new HoveredThresholdNode(x, Double.parseDouble(y)));
+                        series.getData().add(data);
                     }
                     break;
             }
@@ -220,7 +233,7 @@ public class Controller implements Initializable {
 
     //shows the log when you press "Show Log" in the settings window
     public void showLog() {
-        ACLogger.writeCorrespondence("Warning", "Es gab einen Fehler!");
+        //ACLogger.writeCorrespondence("Warning", "Es gab einen Fehler!");
         try {
             txt_log.setText(ACLogger.readCorrespondence());
         } catch (IOException e) {
